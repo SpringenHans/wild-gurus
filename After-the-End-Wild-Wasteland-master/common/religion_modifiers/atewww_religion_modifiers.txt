@@ -1,0 +1,24 @@
+statue_of_liberty_upgraded = {
+	authority = 3
+	years = 20
+}
+
+statue_of_liberty_restored = {
+	authority = 2
+	years = 20
+}
+
+statue_of_liberty_looted = {
+	authority = -3
+	years = 20
+}
+
+inspired_teachings_neutic = {
+	authority = 1
+	years = 25
+}
+
+unenlightened_guru = { # Neutic
+	authority = -3
+	years = 25
+}

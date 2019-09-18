@@ -1,0 +1,63 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+succ_brethren_elective;Pirate Elective;;;;;;;;;;;;;x
+succ_brethren_elective_desc;Pirates practice a unique system of succession, where the most able (and ruthless) capitan takes over. Unlike Feudal Electors, each elector has a different voting strength, based on his prestige, piety and attributes, making some electors more influential than others. The current ruler wields the most influence, unless disfigured, deformed or underage. Direct vassals of the ruler, close family members, Commanders, Councillors and Claimants are all viable candidates for succession;;;;;;;;;;;;;x
+brethren_elective;Pirate Elective;;;;;;;;;;;;;x
+gov_piracy;Pirate [PrimaryTitle.GetTier];;;;;;;;;;;;;x
+tooltip_vote_good_pirate;[Root.GetFirstName] is a fearsome pirate;;;;;;;;;;;;;x
+tooltip_vote_bad_pirate;[Root.GetFirstName] is a lousy pirate;;;;;;;;;;;;;x
+tooltip_vote_good_martial;[Root.GetFirstName] is a powerful warrior;;;;;;;;;;;;;x
+tooltip_vote_good_diplomacy;[Root.GetFirstName] is a great orator;;;;;;;;;;;;;x
+tooltip_imperial_vote_strength_elector_piety;[Root.GetFirstName] is §YPious§!;[Root.GetFirstName] est §Yprestigieu[Root.GetXSe]§!;[Root.GetFirstName] ist §Yprestigeträchtig§!;;[Root.GetFirstName] es §Yprestigios[Root.GetOA]§!;;;;;;x
+tooltip_vote_no_kills;[Root.GetFirstName] hasn't even killed a man!;;;;;;;;;;;;;x
+tooltip_vote_at_least_one_kill;[Root.GetFirstName] has killed at least one man;;;;;;;;;;;;;x
+
+tributary_pirate_cb_desc;§Y$TARGET$§! is rich and should pay tribute to you!\n\nThrough war you can force any realm that you border to pay you §Y40%§! of their income as tribute.\nThis type of §YTributary§! will §Rbreak free§! upon the death of the §YSuzerain§!.\nThis type of §YTributary§! can be called to war.;§Y$TARGET$§! est riche et devrait vous payer un tribut !\n\nPar la guerre, vous pouvez forcer tout pays à vous donner §G40%§! de ses revenus.\nCe type de tributaire sera §Rlibéré à la mort du suzerain§!.\nCe type de tributaire §Gpeut être appelé à la guerre§!.;§Y$TARGET$§! ist reich und sollte uns Tribut zahlen!\n\nDurch Krieg kann jedes Reich, das an Euch grenzt, dazu gezwungen werden, §Y40%§! ihres Einkommens als Tribut zu zahlen.\nDiese Art §YTributstaat§! wird bei Tod des §YSuzerän§! §Runabhängig§!.\nDiese Art §YTributstaat§! kann in den Krieg gerufen werden.;;¡§Y$TARGET$§! es rico y debería pagar tributo!\n\nPuedes usar la guerra para que cualquier reino fronterizo contigo te pague el §Y40%§! de sus ingresos como tributo.\nEsta clase de §Ytributario§! se §Rliberará§! con la muerte del §Ysoberano§!.\nEste tipo de §Ytributario§! puede ser llamado a la guerra.;;;;;;;;;x
+
+become_pirate_king;Become The [Root.GetPirateMonarch];;;;;;;;;;;;;x
+become_pirate_king_desc;From Vancouver to Guyana my name is spoken of in hushed whispers, my sails are known to all, and most importantly I have earned the respect of my fellow Brethren faitfhul. Perhaps the time has come to crown a new [Root.GetPirateMonarch]?;;;;;;;;;;;;;x
+pirate_king_hereditary;Solidify Your Rule;;;;;;;;;;;;;x
+pirate_king_hereditary_desc;I have plundered the seas of the Americas for years - there is not a soul in the world that could possibly contest my right to rule as [Root.GetPirateMonarch], and yet it is not enough. When I at long last meet Davy Jones in his watery halls my Kingdom shall turn to ash... but perhaps the time has come to change that?;;;;;;;;;;;;;x
+vassalize_code_keepers;Vassalize the Keepers of the Code;;;;;;;;;;;;;x
+vassalize_code_keepers_desc;The Keepers of the Code will surely serve a powerful [Root.GetPirateMonarch] - all they need is some gold for their trouble.;;;;;;;;;;;;;x
+
+
+EVTNAME_pirate_king;The [Root.GetPirateMonarch];;;;;;;;;;;;;x
+EVTDESC_pirate_king;Since the first Brethren took to the seas they've told stories of the great Pirate Kings and Queens of old - From Blackbeard to Charles Vane and William Kidd and now [Root.GetFullName]. Through grit, bravery, and skill, [Root.GetFullName] has managed to proclaim [Root.GetHerselfHimself] the new [Root.GetPirateMonarch], ushring in a new era for the Brethren in the process.;;;;;;;;;;;;;x
+EVTOPTA_pirate_king;All hands on deck!;;;;;;;;;;;;;x
+EVTOPTB_pirate_king;Oh dear...;;;;;;;;;;;;;x
+EVTOPTC_pirate_king;Hoist the black flag lads!;;;;;;;;;;;;;x
+
+k_pirate_kingdom;Kingdom Of The Seas;;;;;;;;;;;;;x
+k_pirate_kingdom_adj;Brethren;;;;;;;;;;;;;x
+PIRATE_KING;Pirate King;;;;;;;;;;;;;x
+PIRATE_QUEEN;Pirate Queen;;;;;;;;;;;;;x
+PIRATE_KING_FOA;Boss;;;;;;;;;;;;;x
+
+pirate_king;[Root.GetPirateMonarch];;;;;;;;;;;;;x
+pirate_king_desc;This character has earned a name for themselves as a fierce [Root.GetPirateMonarch].;;;;;;;;;;;;;x
+
+pirate_king_bloodline;Blackblood;Tempête de Sang;Sturmblut;;Sangre tormentosa;;;;;;;;x
+pirate_king_bloodline_desc;Entire cities have been decimated by the raids of [This.Founder.GetTitledFirstName], etching [This.Founder.GetHerHis] legacy as one of the most fearsome and ruthless Pirates of [This.Founder.PrimaryTitle.GetName].;Des cités entières ont été décimées par les pillages [This.Founder.Get_du_TitledFirstName], gravant son nom dans le marbre en tant que l'un[This.Founder.Get_E] des pirates les plus redoutables et impitoyables [This.Founder.PrimaryTitle.Get_du_Realm].;Ganze Städte wurden durch die Überfälle von [This.Founder.GetTitledFirstName] niedergemäht, [This.Founder.Getderdie] sein Vermächtnis als eine[This.Founder.GetrMale] der furchterregendsten und rücksichtslosesten Piraten von [This.Founder.PrimaryTitle.GetName] beansprucht.;;Ciudades enteras fueron devastadas por las incursiones de [This.Founder.GetTitledFirstName], grabando su legado como uno de los piratas de [This.Founder.PrimaryTitle.GetName] más terribles y despiadados.;;;;;;;;x
+
+pirate_queen_bloodline;Blackblood;Tempête de Sang;Sturmblut;;Sangre tormentosa;;;;;;;;x
+pirate_queen_bloodline_desc;Entire cities have been decimated by the raids of [This.Founder.GetTitledFirstName], etching [This.Founder.GetHerHis] legacy as one of the most fearsome and ruthless Pirates of [This.Founder.PrimaryTitle.GetName].;Des cités entières ont été décimées par les pillages [This.Founder.Get_du_TitledFirstName], gravant son nom dans le marbre en tant que l'un[This.Founder.Get_E] des pirates les plus redoutables et impitoyables [This.Founder.PrimaryTitle.Get_du_Realm].;Ganze Städte wurden durch die Überfälle von [This.Founder.GetTitledFirstName] niedergemäht, [This.Founder.Getderdie] sein Vermächtnis als eine[This.Founder.GetrMale] der furchterregendsten und rücksichtslosesten Piraten von [This.Founder.PrimaryTitle.GetName] beansprucht.;;Ciudades enteras fueron devastadas por las incursiones de [This.Founder.GetTitledFirstName], grabando su legado como uno de los piratas de [This.Founder.PrimaryTitle.GetName] más terribles y despiadados.;;;;;;;;x
+
+EVT_DESC_ATE_WWW_PIRATE_6;The blood of famous Pirate courses through your veins. All along the coasts, villages tremble as they recall the stories of the fearsome [Root.Founder.GetBestName] - and now, it is time for you to carry on their legacy.;;;;;;;;;;;;;x
+
+EVT_DESC_ATE_WWW_PIRATE_6_VIKING;The blood of famous Viking courses through your veins. All along the coasts, villages tremble as they recall the stories of the fearsome [Root.Founder.GetBestName] - and now, it is time for you to carry on their legacy.;;;;;;;;;;;;;x
+
+EVT_OPTA_ATE_WWW_PIRATE_6;Yarr!;;;;;;;;;;;;;x
+EVT_OPTB_ATE_WWW_PIRATE_6;Loot, maim, burn!;;;;;;;;;;;;;x
+
+EVT_NAME_ATE_WWW_PIRATE_8;The Death Of The [dead_pirate_king.GetPirateMonarch];;;;;;;;;;;;;x
+EVT_DESC_ATE_WWW_PIRATE_8;Ashes to ashes, dust to dust. It seems the [dead_pirate_king.GetPirateMonarch] [dead_pirate_king.GetFullName] has breathed [dead_pirate_king.GetHerHis] last and with that [dead_pirate_king.GetHerselfHimself] Kingdom has collapsed. But fear not, for in the chaos lays opportunity - opportunity for a new [Root.GetPirateMonarch] to rise.;;;;;;;;;;;;;x
+EVT_OPTA_ATE_WWW_PIRATE_8;Perhaps I shall be the one?;;;;;;;;;;;;;x 
+
+EVT_NAME_ATE_WWW_PIRATE_9;The Pirate King's Proclamation;;;;;;;;;;;;;x
+EVT_DESC_ATE_WWW_PIRATE_9;[From.GetFullName] has had a long and bountiful career as a Pirate, even managing to get [From.GetHerselfHimself] proclaimed [From.GetPirateMonarch], but that was simply not enough for the infamous [From.GetPirateMonarch]. [From.GetFullName], in a grand ceremony attended by all their subordinate Captains, has proclaimed that the title of [From.GetPirateMonarch] shall henceforth become hereditary and that their dynasty shall have the sole claim to the title of [From.GetPirateMonarch]. While many have scoffed at this outright ridiculous proclimation it's not as if they can do anything to stop [From.GetFullName].;;;;;;;;;;;;;x
+EVTOPTA_pirate_king_2;This doesn't seem very Piratey.;;;;;;;;;;;;;x
+EVTOPTB_pirate_king_2;Oh, bugger me...;;;;;;;;;;;;;x
+EVTOPTC_pirate_king_2;I am the greatest Pirate that ever lived!;;;;;;;;;;;;;x
+
+brethren_FEATURES;§Y*§! The Pirate King can use the Force Vassalization CB on other Brethren rulers\n§Y*§! Brethren rulers must commit to following the lifestyle of a pirate, and may select from one of three ways of doing so\n§Y*§! Brethren rulers have a greater chance of capturing enemies and looting artifacts from their holder when leading armies and successfully sieging holdings;;;;;;;;;;;;;x
+mictlantec_FEATURES;§Y*§! Sacrifice prisoners to their gods, either individually or in a major ceremony\n§Y*§! Kings and emperors are expected to declare themselves Incarnates (living gods)\n§Y*§! May go on vision quests after a ceremony of human sacrifice\n§Y*§!May declare Flower Wars to gain captives for sacrifice\n§Y*§! Mictlantec rulers have a greater chance of capturing enemies and looting artifacts from their holder when leading armies and successfully sieging holdings;;;;;;;;;;;;;x

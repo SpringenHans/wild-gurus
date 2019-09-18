@@ -1,0 +1,705 @@
+namespace = miscATEWW
+
+character_event = {
+	id = miscATEWW.1
+	desc = "Make sure newly spawned characters in AI holy orders/theocracies make sense"
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		FROMFROM = {
+			ai = yes
+			OR = {
+				holy_order = yes
+				is_theocracy = yes
+				mercenary = yes
+				primary_title = { is_landless_type_title = yes }
+			}
+			primary_title = { 
+				NOR = { 
+					has_law = agnatic_succession 
+					AND = {
+						is_theocracy = yes
+						religion_allows_female_temple_holders = no
+						religion_allows_male_temple_holders = yes
+					}
+					AND = {
+						holy_order = yes
+						OR = {
+							religion_allows_female_temple_holders = no
+							females_can_hold_minor_commander_title_trigger = no
+						}
+						religion_allows_male_temple_holders = yes
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		log = "miscATEWW.1: [Root.GetBestName] in [FromFrom.GetBestName] ([FromFrom.Religion.GetName])"
+		if = {
+			limit = {
+				FROM = { character = no }
+			}
+			if = {
+				limit = {
+					FROMFROM = { 
+						OR = {
+							holy_order = yes
+							mercenary = yes
+						}
+					}
+				}
+				log = "miscATEWW.1: [FromFrom.GetBestName] is holy order or mercenary"
+				#all female
+				if = {
+					limit = {
+						FROMFROM = {
+							primary_title = {
+								OR = {
+									has_law = enatic_succession
+									AND = {
+										holy_order = yes
+										religion_allows_female_temple_holders = yes
+										religion_allows_male_temple_holders = no
+									}
+								}
+							}
+						}
+					}
+					log = "miscATEWW.1: [Root.GetBestName] holy order/merc"
+					set_gender = female
+				}
+				else = {
+					#50/50
+					log = "miscATEWW.1: [Root.GetBestName] 50/50 holy order/merc"
+					character_event = { id = miscATEWW.5 }
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						is_priest = yes
+						trait = detached_priest
+						trait = martial_cleric
+						trait = scholarly_theologian
+						trait = mastermind_theologian
+					}
+				}
+				if = {
+					limit = {
+						FROMFROM = {
+							religion_allows_female_temple_holders = yes
+							religion_allows_male_temple_holders = no
+						}
+					}
+					log = "miscATEWW.1: [Root.GetBestName] priest"
+					set_gender = female
+				}
+				else_if = {
+					limit = {
+						FROMFROM = {
+							religion_allows_female_temple_holders = yes
+							religion_allows_male_temple_holders = yes
+						}
+					}
+					log = "miscATEWW.1: [Root.GetBestName] 50/50 priest"
+					character_event = { id = miscATEWW.5 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROMFROM = { matriarchal_religion = yes }
+				}
+				log = "miscATEWW.1: [Root.GetBestName] 80/20"
+				set_character_flag = 80_20_female
+				character_event = { id = miscATEWW.5 }
+			}
+			else = {
+				log = "miscATEWW.1: [Root.GetBestName] 50/50"
+				character_event = { id = miscATEWW.5 }
+			}
+		}
+		if = {
+			limit = { is_female = yes }
+			if = {
+				limit = {
+					religion = libertarian
+				}
+				give_ROOT_random_female_libertarian_name = yes
+			}
+			else = {
+				give_ROOT_random_name = yes
+			}
+		}
+		if = {
+			limit = {
+				religion = libertarian
+			}
+			character_event = { id = miscATEWW.3 days = 1 }
+		}
+		if = {
+			limit = {
+				FROMFROM = { has_landed_title = d_nancy_harts }
+				NOT = { trait = shieldmaiden }
+				martial = 5
+			}
+			random = {
+				chance = 20
+				modifier = {
+					factor = 2
+					martial = 10
+				}
+				modifier = {
+					factor = 2
+					martial = 20
+				}
+				add_trait = shieldmaiden
+			}
+		}
+		if = {
+			limit = {
+				FROMFROM = { 
+					OR = {
+						holy_order = yes
+						mercenary = yes
+					}
+				}
+			}
+			FROMFROM = {
+				ROOT = { clear_wealth = PREV }
+				character_event = { id = miscATEWW.2 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = miscATEWW.2
+	desc = "Make sure newly spawned characters in AI holy orders/theocracies make sense"
+	is_triggered_only = yes
+	hide_window = yes
+	only_rulers = yes
+	trigger = {
+		OR = {
+			holy_order = yes
+			mercenary = yes
+		}
+	}
+	
+	option = {
+		log = "miscATEWW.2: Fire for [Root.GetTitledName] ([Root.Religion.GetName])"
+		if = {
+			limit = {
+				holy_order = yes
+				primary_title = {
+					holy_order_is_celibate = yes
+				}
+				NOT = { trait = celibate }
+			}
+			spouse = {
+				remove_spouse = spouse
+				character_event = { id = SoA.2863 }
+			}
+			add_trait = celibate
+		}
+		if = {
+			limit = {
+				has_landed_title = d_nancy_harts
+				NOT = { trait = shieldmaiden }
+			}
+			add_trait = shieldmaiden
+		}
+		if = {
+			limit = { has_landed_title = d_men_in_black }
+			primary_title = {
+				if = {
+					limit = {
+						NOT = { has_law = succ_mib_elective }
+					}
+					add_law = { law = succ_mib_elective cooldown = no opinion_effect = no }
+				}
+			}
+			if = {
+				limit = { 
+					independent = yes 
+					NOR = {  
+						religion = americanist
+						religion = jeffersonian
+						religion = hamiltonian
+						religion = libertarian
+					}
+				}
+				religion = americanist
+				abandon_heresy = yes
+			}
+			else_if = {
+				limit = {
+					liege = {
+						NOR = {
+							religion = americanist
+							religion = jeffersonian
+							religion = hamiltonian
+							religion = libertarian
+						}
+					}
+					NOR = { 
+						true_religion = americanist 
+						true_religion = jeffersonian
+						true_religion = hamiltonian
+						true_religion = libertarian
+					}
+				}
+				clear_secret_religion = yes
+				set_secret_religion = americanist
+			}
+
+			#Try and force them to lvl 3 of the assassins
+			if = {
+				limit = { NOT = { society_member_of = the_assassins } }
+				join_society = the_assassins
+			}
+			if = {
+				limit = {
+					society_rank = {
+						rank == 1
+						society = the_assassins
+					}
+				}
+				society_rank_up = {
+					rank = 2
+					society = the_assassins
+				}
+			}
+			else_if = {
+				limit = {
+					society_rank = {
+						rank == 2
+						society = the_assassins
+					}
+				}
+				society_rank_up = {
+					rank = 1
+					society = the_assassins
+				}
+			}
+		}
+		if = {
+			limit = { has_landed_title = d_libertarian }
+			log = "miscATEWW.2: [Root.GetTitledName] in libertarian block"
+			primary_title = {
+				if = {
+					limit = {
+						NOT = { has_law = succ_libertarian_elective }
+					}
+					add_law = { law = succ_libertarian_elective cooldown = no opinion_effect = no }
+				}
+			}
+			#Changes religion
+			if = {
+				limit = { 
+					NOT  = { religion = libertarian }
+				}
+				religion = libertarian
+			}
+
+			#Try and force them to lvl 4 of the order
+			if = {
+				limit = { NOT = { society_member_of = monastic_order_libertarian } }
+				join_society = monastic_order_libertarian
+			}
+			if = {
+				limit = {
+					society_rank = {
+						rank == 1
+						society = monastic_order_libertarian
+					}
+				}
+				society_rank_up = {
+					rank = 3
+					society = monastic_order_libertarian
+				}
+			}
+			else_if = {
+				limit = {
+					society_rank = {
+						rank == 2
+						society = monastic_order_libertarian
+					}
+				}
+				society_rank_up = {
+					rank = 2
+					society = monastic_order_libertarian
+				}
+			}
+			else_if = {
+				limit = {
+					society_rank = {
+						rank == 3
+						society = monastic_order_libertarian
+					}
+				}
+				society_rank_up = {
+					rank = 1
+					society = monastic_order_libertarian
+				}
+			}
+			if = {
+				limit = { is_society_grandmaster = no }
+				set_society_grandmaster = yes
+			}
+		}
+		any_realm_character = {
+			limit = {
+				prisoner = no
+				OR = {
+					government = ROOT
+					host = { character = ROOT }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						holy_order = yes
+						primary_title = {
+							holy_order_is_celibate = yes
+						}
+					}
+					NOT = { trait = celibate }
+				}
+				spouse = {
+					remove_spouse = spouse
+					character_event = { id = SoA.2863 }
+				}
+				add_trait = celibate
+			}
+			if = {
+				limit = {
+					ROOT = {
+						has_landed_title = d_men_in_black
+						OR = {
+							true_religion = americanist
+							true_religion = jeffersonian
+							true_religion = hamiltonian
+							true_religion = libertarian
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOR = {
+							true_religion = americanist
+							true_religion = jeffersonian
+							true_religion = hamiltonian
+							true_religion = libertarian
+						}
+					}
+					if = {
+						limit = {
+							liege = {
+								NOR = {
+									religion = americanist
+									religion = jeffersonian
+									religion = hamiltonian
+									religion = libertarian
+								}
+							}
+							OR = { 
+								true_religion = americanist 
+								true_religion = jeffersonian
+								true_religion = hamiltonian
+								true_religion = libertarian
+							}
+						}
+						clear_secret_religion = yes
+						set_secret_religion = americanist
+					}
+					else = {
+						religion = americanist
+						abandon_heresy = yes
+					}
+				}
+				if = {
+					limit = {
+						is_adult = yes
+						prisoner = no
+						NOT = { trait = incapable }
+						NOT = { society_member_of = the_assassins }
+						can_join_society = the_assassins
+					}
+					join_society = the_assassins
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = {
+						has_landed_title = d_libertarian
+						religion = libertarian
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							religion = libertarian
+						}
+					}
+					religion = libertarian
+				}
+				if = {
+					limit = {
+						is_female = yes
+						is_adult = yes
+						prisoner = no
+						NOT = { trait = incapable }
+					}
+					if = {
+						limit = {
+							NOT = { society_member_of = monastic_order_libertarian }
+							can_join_society = monastic_order_libertarian
+						}
+						join_society = monastic_order_libertarian
+						if = {
+							limit = {
+								society_rank = {
+									rank == 1
+									society = monastic_order_libertarian
+								}
+							}
+							society_rank_up = {
+								rank = 1
+								society = monastic_order_libertarian
+							}
+						}
+					}
+					if = {
+						limit = {
+							society_rank = {
+								rank == 2
+								society = monastic_order_libertarian
+							}
+							NOT = { year = 2668 }
+						}
+						random_list = {
+							4 = {
+							}
+							6 = {
+								trigger = {
+									society_can_rank_up = yes
+								}
+								modifier = {
+									factor = 2
+									has_minor_title = title_commander
+								}
+								society_rank_up = {
+									rank = 1
+									society = monastic_order_libertarian
+								}
+							}
+							1 = {
+								trigger = {
+									society_can_rank_up = yes
+								}
+								modifier = {
+									factor = 2
+									OR = {
+										has_job_title = job_chancellor
+										has_job_title = job_marshal
+										has_job_title = job_treasurer
+										has_job_title = job_spymaster
+										has_job_title = job_spiritual
+									}
+								}
+								society_rank_up = {
+									rank = 1
+									society = monastic_order_libertarian
+								}
+								if = {
+									limit = { society_can_rank_up = yes }
+									society_rank_up = {
+										rank = 1
+										society = monastic_order_libertarian
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = { holy_order = yes }
+					NOT = { religion = ROOT }
+				}
+				religion = ROOT
+			}
+		}
+	}
+}
+
+character_event = {
+	id = miscATEWW.3
+	desc = "Make sure newly spawned characters in AI holy orders/theocracies make sense"
+	is_triggered_only = yes
+	hide_window = yes
+	religion = libertarian
+	trigger = {
+		is_priest = yes
+		NOT = { society_member_of = monastic_order_libertarian }
+		can_join_society = monastic_order_libertarian
+	}
+	option = {
+		join_society = monastic_order_libertarian
+	}
+	
+}
+
+character_event = {
+	id = miscATEWW.4
+	desc = "Make Trump pop in lol"
+	is_triggered_only = yes
+	hide_window = yes
+	is_patrician = yes
+	trigger = {
+		NOT = { has_global_flag = miscATEWW_4_fired }
+		liege = { has_landed_title = d_new_york }
+		NOT = { current_heir = { always = yes } }
+		c_2000060 = { 
+			is_patrician = no
+			is_alive = yes
+			is_incapable = no
+			prisoner = no
+			liege = { has_landed_title = d_new_york }
+		}
+	}
+	option = {
+		c_2000060 = {
+			create_family_palace = yes
+		}		
+		set_global_flag = miscATEWW_4_fired
+	}
+	
+}
+
+character_event = {
+	id = miscATEWW.5
+	desc = "Make female - put it here for better randomness"
+	is_triggered_only = yes
+	hide_window = yes
+	only_men = yes
+	ai = yes
+	trigger = {
+		is_alive = yes
+		OR = {
+			NOT = { has_global_flag = scenario_initialization }
+			is_landed = no
+			lower_tier_than = DUKE
+		}
+		NOT = { father_even_if_dead = { always = yes } }
+		NOT = { mother_even_if_dead = { always = yes } }
+		NOT = { spouse_even_if_dead = { always = yes } }
+		NOT = { any_child = { always = yes } }
+		NOR = { 
+			has_character_flag = historical_character 
+			has_character_flag = keep_male 
+		}
+	}
+	option = {
+		log = "miscATEWW.5: [Root.GetBestName] make female"
+		set_gender = female
+		give_ROOT_random_name = yes
+		clr_character_flag = 80_20_female
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 4
+				has_character_flag = 80_20_female
+			}
+		}
+	}
+	option = {
+		log = "miscATEWW.5: [Root.GetBestName] keep_male"
+		set_character_flag = keep_male
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_ruler = yes
+				primary_title = { has_law = enatic_succession }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = miscATEWW.6
+	desc = "Rename libertarian female - put it here for better randomness"
+	is_triggered_only = yes
+	hide_window = yes
+	religion = libertarian
+	only_women = yes
+	option = {
+		give_ROOT_random_name = yes
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0.5
+				NOT = { total_years_played = 5 }
+			}
+		}
+	}
+	option = { set_name = Justice ai_chance = { factor = 1 } }
+	option = { set_name = Columbia ai_chance = { factor = 1 } }
+	option = { set_name = Libertas ai_chance = { factor = 1 } }
+	option = { set_name = Liberalitas ai_chance = { factor = 1 } }
+	option = { set_name = Acantha ai_chance = { factor = 1 } }
+	option = { set_name = Althea ai_chance = { factor = 1 } }
+	option = { set_name = Anthea ai_chance = { factor = 1 } }
+	option = { set_name = Ariadne ai_chance = { factor = 1 } }
+	option = { set_name = Artemis ai_chance = { factor = 1 } }
+	option = { set_name = Astra ai_chance = { factor = 1 } }
+	option = { set_name = Athena ai_chance = { factor = 1 } }
+	option = { set_name = Aurora ai_chance = { factor = 1 } }
+	option = { set_name = Calypso ai_chance = { factor = 1 } }
+	option = { set_name = Cassandra ai_chance = { factor = 1 } }
+	option = { set_name = Ceres ai_chance = { factor = 1 } }
+	option = { set_name = Clio ai_chance = { factor = 1 } }
+	option = { set_name = Daphne ai_chance = { factor = 1 } }
+	option = { set_name = Diana ai_chance = { factor = 1 } }
+	option = { set_name = Fortuna ai_chance = { factor = 1 } }
+	option = { set_name = Hera ai_chance = { factor = 1 } }
+	option = { set_name = Hestia ai_chance = { factor = 1 } }
+	option = { set_name = Ianthe ai_chance = { factor = 1 } }
+	option = { set_name = Irene ai_chance = { factor = 1 } }
+	option = { set_name = Iris ai_chance = { factor = 1 } }
+	option = { set_name = Cora ai_chance = { factor = 1 } }
+	option = { set_name = Leto ai_chance = { factor = 1 } }
+	option = { set_name = Luna ai_chance = { factor = 1 } }
+	option = { set_name = Melia ai_chance = { factor = 1 } }
+	option = { set_name = Minerva ai_chance = { factor = 1 } }
+	option = { set_name = Nike ai_chance = { factor = 1 } }
+	option = { set_name = Pallas ai_chance = { factor = 1 } }
+	option = { set_name = Pax ai_chance = { factor = 1 } }
+	option = { set_name = Penelope ai_chance = { factor = 1 } }
+	option = { set_name = Phyllis ai_chance = { factor = 1 } }
+	option = { set_name = Rhea ai_chance = { factor = 1 } }
+	option = { set_name = Selene ai_chance = { factor = 1 } }
+	option = { set_name = Thalassa ai_chance = { factor = 1 } }
+	option = { set_name = Venus ai_chance = { factor = 1 } }
+	option = { set_name = Xanthe ai_chance = { factor = 1 } }
+}
+
+character_event = {
+	id = miscATEWW.7
+	desc = "Make sure S-mart is always republican"
+	is_triggered_only = yes
+	hide_window = yes
+	only_rulers = yes
+	trigger = {
+		FROM = { title = k_s_mart }
+		is_republic = no
+	}
+	immediate = {
+		k_s_mart = { destroy_landed_title = THIS }
+	}
+}

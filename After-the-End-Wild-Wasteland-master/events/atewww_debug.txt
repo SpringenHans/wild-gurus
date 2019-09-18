@@ -1,0 +1,193 @@
+namespace = ATE_WWW_DEBUG
+
+# Establishing the Supreme Court
+character_event = {
+	id = ATE_WWW_DEBUG.1
+	desc = "DEBUG"
+	picture = GFX_evt_capitol_building
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "americanist"
+		any_independent_ruler = {
+			religion = americanist
+			any_realm_character = {
+				limit = {
+					OR = {
+						religion = jeffersonian
+						religion = libertarian
+						religion = hamiltonian
+					}
+				}
+				religion = americanist
+			}
+		}
+	}
+
+	option = {
+		name = "jeffersonian"
+		any_independent_ruler = {
+			religion = jeffersonian
+			any_realm_character = {
+				limit = {
+					OR = {
+						religion = americanist
+						religion = libertarian
+						religion = hamiltonian
+					}
+				}
+				religion = jeffersonian
+			}
+		}
+	}
+
+	option = {
+		name = "libertarian"
+		any_independent_ruler = {
+			religion = libertarian
+			any_realm_character = {
+				limit = {
+					OR = {
+						religion = jeffersonian
+						religion = americanist
+						religion = hamiltonian
+					}
+				}
+				religion = libertarian
+			}
+		}
+	}
+
+	option = {
+		name = "hamiltonian"
+		any_independent_ruler = {
+			religion = hamiltonian
+			any_realm_character = {
+				limit = {
+					OR = {
+						religion = jeffersonian
+						religion = libertarian
+						religion = americanist
+					}
+				}
+				religion = hamiltonian
+			}
+		}
+	}
+}
+
+character_event = {
+	id = ATE_WWW_DEBUG.2
+	desc = "DEBUG"
+	picture = GFX_evt_capitol_building
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "americanist"
+		religion = americanist
+			any_realm_character = {
+				religion = americanist
+			}
+	}
+
+	option = {
+		name = "jeffersonian"
+		religion = jeffersonian
+			any_realm_character = {
+				religion = jeffersonian
+			}
+	}
+
+	option = {
+		name = "libertarian"
+		religion = libertarian
+			any_realm_character = {
+				religion = libertarian
+			}
+	}
+
+	option = {
+		name = "hamiltonian"
+		religion = hamiltonian
+			any_realm_character = {
+				religion = hamiltonian
+			}
+	}
+}
+
+character_event = {
+	id = ATE_WWW_DEBUG.3
+	desc = "DEBUG"
+	picture = GFX_evt_capitol_building
+	hide_window = yes
+	
+	is_triggered_only = yes
+	trigger = {
+		is_ruler = yes
+		is_landed = yes
+		mercenary = no
+		temporary = no
+		religion = gaian
+		any_demesne_title = {
+			is_law_potential = enatic_cognatic_succession
+			has_law = enatic_succession
+		}
+	}
+	
+	option = {
+		any_demesne_title = {
+			limit = { is_law_potential = enatic_cognatic_succession has_law = enatic_succession }
+			log = "change succession law to enatic_cognatic in [This.GetName]"
+			add_law = { law = enatic_cognatic_succession cooldown = no opinion_effect = no }
+		}
+		ai_chance = {
+			factor = 1
+			additive_modifier = {
+				value = 1
+			}
+		}
+	}
+
+	option = {
+		log = "AI CHANCE 2 OPTION B"
+		ai_chance = {
+			factor = 1
+			additive_modifier = {
+				value = 1
+			}
+		}
+	}
+
+}
+
+character_event = {
+	id = ATE_WWW_DEBUG.4
+	desc = "DEBUG"
+	picture = GFX_evt_capitol_building
+	
+	is_triggered_only = yes
+	hide_window = yes
+	
+	option = {
+		log = "ATE_WWW_DEBUG.4: [Root.GetBestName]"
+		log = "ATE_WWW_DEBUG.4: [Root.GetBestName] try father:"
+		father_even_if_dead = { log = "ATE_WWW_DEBUG.4: [Root.GetBestName] father: [This.GetBestName]" }
+		log = "ATE_WWW_DEBUG.4: [Root.GetBestName] try mother:"
+		mother_even_if_dead = { log = "ATE_WWW_DEBUG.4: [Root.GetBestName] mother: [This.GetBestName]" }
+		if = {
+			limit = { father_even_if_dead = { always = yes } }
+			father_even_if_dead = { log = "ATE_WWW_DEBUG.4: [Root.GetBestName] father: always = yes" }
+		}
+		if = {
+			limit = { mother_even_if_dead = { always = yes } }
+			mother_even_if_dead = { log = "ATE_WWW_DEBUG.4: [Root.GetBestName] mother: always = yes" }
+		}
+		if = {
+			limit = { mother_even_if_dead = { is_parent_of = ROOT } }
+			mother_even_if_dead = { log = "ATE_WWW_DEBUG.4: [Root.GetBestName] mother: is_parent_of = ROOT" }
+		}
+	}
+
+}

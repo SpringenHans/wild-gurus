@@ -1,0 +1,75 @@
+succession_laws = {
+    succ_libertarian_elective = {
+		potential = {
+			title = d_libertarian
+		}
+		effect = {
+			succession = {
+				base_type = feudal_elective
+				voting_rules = libertarian_elective
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}			
+	}
+    succ_mib_elective = {
+		potential = {
+			title = d_men_in_black
+		}
+		effect = {
+			succession = {
+				base_type = feudal_elective
+				voting_rules = mib_elective
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}			
+	}
+    succ_brethren_elective = {
+		oldest_child_opinion = -5
+		child_opinion = -5
+		dynasty_opinion = -5
+		vassal_opinion = 10
+		potential = {
+			NAND = {
+				title = k_pirate_kingdom
+				has_global_flag = pirate_king_hereditary
+			}
+			higher_tier_than = BARON
+			holder_scope = {
+				religion_group = pirate
+				is_republic = no
+				is_merchant_republic = no
+				is_nomadic = no
+			}
+			NAND = { 
+				has_law = succession_voting_power_1
+				OR = { 
+					has_law = succ_feudal_elective 
+					has_law = succ_hre_elective
+				}
+			}
+			NOT = { holder_scope = { government = confucian_bureaucracy } }
+		}
+		effect = {
+			succession = {
+				base_type = feudal_elective
+				voting_rules = brethren_elective
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		default_selection = {
+			factor = 0
+			modifier = {
+				factor = 100
+				holder_scope = {
+					religion_group = pirate
+				}
+			}
+		}
+	}
+}

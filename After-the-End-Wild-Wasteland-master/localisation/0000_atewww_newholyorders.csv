@@ -1,0 +1,142 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+HOLY_ORDER_DEMAND_SON_ALT;Most righteous [Root.GetTitledFirstName], I have a humble request for you in light of your debt to us. There is no rest in our defense against the infidel and we have desperate need of knights to lead our men. Thus, I would like to extend this opportunity to your able and noble [FromFrom.GetSonDaughter] [FromFrom.GetFirstName] to serve in our ranks. Naturally, this would disinherit [FromFrom.GetHerHim]. May [From.Religion.GetHighGodName] bless you,\n\n[From.GetTitledFirstName];Très juste [Root.GetTitledFirstName], j'ai une humble requête à vous soumettre, qui a trait à votre dette envers l'Ordre.\n\nComme vous le savez, notre lutte contre les infidèles ne connaît aucun répit et nous avons grand besoin de chevaliers. Nous présentons donc l'opportunité à votre fils [FromFrom.GetFirstName] de servir dans nos rangs afin de rembourser votre emprunt. Notez cependant que cet engagement le déshériterait.\n\nGrand Maître [From.GetFirstName];Rechtschaffenste[Root.GetrMale] [Root.GetTitledFirstName], ich habe eine bescheidende Bitte an euch angesichts eurer Schulden an uns. Unsere Verteidigung gegen die Ungläubigen hat keine Ruhe und wir brauchen dringend Ritter, um unsere Männer anzuführen. Ich möchte diese Gelegenheit daher nutzen, um euren fähigen und edlen Sohn [FromFrom.GetFirstName] anzufordern, um in unseren Reihen zu dienen. Natürlich würde dies ihn enterben. Möge [From.Religion.GetHighGodName] euch segnen,\n\nGroßmeister [From.GetFirstName];;Just[Root.GetOA] [Root.GetTitleFirstName]. Quisiera haceros una humilde petición respecto a la deuda que tenéis que nosotros. La lucha contra el infiel no descansa y estamos muy necesitados de caballeros que dirijan a nuestros hombres. Así pues, me gustaría extender la invitación a servir en nuestras filas a vuestro a capaz y noble hijo [FromFrom.GetFirstName]. Por supuesto, esto le desheredaría. Que [From.Religion.GetHighGodName] os bendiga.\n\nGran Maestre [From.GetFirstName];;;;;;;;;x
+EVTDESCHFPA23010;To [Root.GetTitledName],\nWe have heard your passionate plea for forgiveness, and We are certain that you will be eager to prove the sincerity of your repentance by devoting the life of your [son_monk_candidate.GetSonDaughter] [son_monk_candidate.GetFirstName] to [From.Religion.GetHighGodName].\n\nSincerely,\n[From.GetTitledName];[Root.Get_Au_TitledName],\nNous avons pris note de votre plaidoyer véhément pour le pardon et Nous sommes certain que vous aurez hâte de prouver la sincérité de votre repentance en vouant la vie d'un de vos enfants [From.Get_au_HighGod].\n\nCordialement,\n[From.GetTitledName];An [Root.GetTitledName],\nWir haben eure leidenschaftliche Bitte um Vergebung zur Kenntnis genommen und sind sicher, dass ihr die Aufrichtigkeit eurer Reue beweisen werdet, indem ihr eines eurer Kinder dem Leben von [From.Religion.GetHighGodName] widmet.\n\nHochachtungsvoll,\n[From.GetTitledName];;A [Root.GetTitledName], \nHemos escuchado tu apasionada petición de perdón y Nos estamos seguros que desearás mostrar la sinceridad de tu arrepentimiento dedicando la vida de uno de tus hijos a [From.Religion.GetHighGodName].\n\nAtentamente, \n[From.GetTitledName];;;;;;;;x
+EVTDESCHFPA230100;To [Root.GetTitledName],\nWe have heard your passionate plea for forgiveness, and We are certain that you will be eager to prove the sincerity of your repentance by devoting the life of your [son_monk_candidate.GetSonDaughter] [son_monk_candidate.GetFirstName] to defence of the [From.Religion.GetHighGodName] as a member of.\n\nSincerely,\n[From.GetTitledName];;;;;;;;;;;;;x
+EVTDESCAHFP23011;The [FromFrom.GetTitle] has determined that the price for my wickedness is the life of my [son_monk_candidate.GetSonDaughter] [son_monk_candidate.GetFirstName]. [son_monk_candidate.GetSheHeCap] will take [son_monk_candidate.GetHerHis] leave [Root.Capital.GetName] to become a [son_monk_candidate.GetManWoman] of the faith.;;;;;;;;;;;;;x
+EVTDESCAHFP230110;The [FromFrom.GetTitle] has determined that the price for my wickedness is the life of my [son_monk_candidate.GetSonDaughter] [son_monk_candidate.GetFirstName]. [son_monk_candidate.GetSheHeCap] will become a member of the [son_holyorder_host.PrimaryTitle.GetFullName], taking up arms in defence of [Root.GetHighGodName].;;;;;;;;;;;;;x
+EVTDESC_SOA_2031;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Freemasons in their tireless pursuit of heathenry, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_2531;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Ordo Templi Occidentis in their ongoing efforts to drive out every unbeliever, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_2631;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Orden de la Máscara in their struggle against the infidel, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_2731;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Order of Brotherhood in their struggle against the infidel, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_1031;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Knights of Columbus in their struggle against the infidel, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_1031;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Knights of Columbus in their struggle against the infidel, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_1131;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Knights of Peter Claver in their struggle against the infidel, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_1203;It's a good day for learning, [Root.GetTitledFirstName]. As you may know, our order is in need of leaders, and, considering your debt to us, I would like to request that your able and noble son [FromFrom.GetFirstName] serve in our ranks. Naturally, this would disinherit [From.GetHerHim]. For Science!\n\nGrand Master [From.GetFirstName];;;;;;;;;;;;;x
+EVTDESC_SOA_1231;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Sons of Oppenheimer to fight the infidel! This will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_1331;My [GetFromRelation], [From.GetTitledFirstName], has requested to join St. Ursula's Chosen in their struggle against the heathens, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_1431;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the dreaded Men in Black in their shady struggles. This will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_1531;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the fearsome Fylkir's Hundreds in their adventures, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_1631;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the National Cathedral Association in their struggle against the infidel, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_1731;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Lebanon Brethren in their struggle against the infidel, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_1831;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Lions of Judah in their struggle against the infidel, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_1931;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Shomrim in their struggle against the infidel, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_2131;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Order of the Flaming Sword in their brave defense of our faith, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_2161;Your majesty, this antagonism is completely unwarranted! The Flaming Swords walk with the Serpent and are prepared to give their lives to defend [From.GetHerHim], but, one has to wonder, are you?\n\nWith anger and sadness,\n\nWarchief [From.GetFirstName];;;;;;;;;;;;;x
+EVTDESC_SOA_2231;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Midwestern Brotherhood in their heroic deeds to smite the enemies of the Omnissah, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_2331;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Keepers of the Green Peace in their war against unbelievers, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_2431;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the heroes in the Nauvoo Legion in struggle against heathens, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTDESC_SOA_2831;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Knights of St. Patrick in their struggle against the infidel, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+
+expel_libertarian;Expel the Order of Our Lady Liberty;;;;;;;;;;;;;x
+expel_libertarian_desc;I can drive the Order of Our Lady Liberty from my realm and seize their castles. However, it is a very impious thing to do...;;;;;;;;;;;;;x
+donate_money_to_libertanians;Donate 300¤ to the Order of Our Lady Liberty;;;;;;;;;;;;;x
+donate_money_to_libertanians_desc;I can donate money to the Order of Our Lady Liberty in exchange for [Player.Religion.GetPietyName] and lifelong respect from the judicary.;;;;;;;;;;;;;x
+vassalize_libertarian;Vassalize the Order of Our Lady Liberty;;;;;;;;;;;;;x
+vassalize_libertarian_desc;In exchange for dominion over the [c_palisades.GetName], the Order of Our Lady Liberty is willing to become my vassal.;;;;;;;;;;;;;x
+
+EVTDESC_ATEWWNHO_2;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Order of Our Lady Liberty in their quest to preserve and protect the Lady, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTTOOLTIP_ATEWWNHO_2;[This.GetTitledFirstName] becomes a member of the Order of Our Lady Liberty.;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_6;Great [Root.PrimaryTitle.GetRulerTitle], your extremely generous donation shall aid us greatly in our quest to serve the will of Lady Liberty! You have my friendship, as well as that of the judicary.\n\nMay Lady Liberty watch over you,\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_10;Most righteous [Root.GetTitledFirstName], the Order of Our Lady Liberty is in need of more castles in order to train troops and generate a supporting income. There is a suitable location in your demesne - in [FromFrom.GetName] to be specific. I am willing to pay you 100 gold in exchange for the right to construct a fortress there.\n\nMay Lady Liberty watch over you,\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_11;The Order of Our Lady Liberty has constructed a castle in [Root.GetName]!;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_13;Your majesty, this antagonism is completely unwarranted! The Order of Our Lady Liberty serve at the pleasure of the Lady, but, one has to wonder, do you?\n\nWith anger and sadness,\n\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+expelled_d_libertarian;Expelled the Order of Our Lady Liberty;;;;;;;;;;;;;x
+
+EVTDESC_ATEWWNHO_15;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Minutemen in their struggle against the Redcoat invader, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTTOOLTIP_ATEWWNHO_15;[This.GetTitledFirstName] becomes a Minuteman.;;;;;;;;;;;;;x
+
+d_american_legion;American Legion;;;;;;;;;;;;;x
+d_american_legion_adj;Legionary;;;;;;;;;;;;;x
+LEGATE;Legate;;;;;;;;;;;;;x
+LEGATE_FOA;Sir;;;;;;;;;;;;;x
+expel_american_legion;Expel the American Legion;;;;;;;;;;;;;x
+expel_american_legion_desc;I can drive the American Legion from my realm and seize their castles. However, it is a very impious thing to do...;;;;;;;;;;;;;x
+donate_money_to_american_legion;Donate 300¤ to the American Legion;;;;;;;;;;;;;x
+donate_money_to_american_legion_desc;I can donate money to the American Legion in exchange for [Player.Religion.GetPietyName] and lifelong respect from the High Command.;;;;;;;;;;;;;x
+
+EVTDESC_ATEWWNHO_19;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the American Legion in their quest to carry out the will of [From.Religion.GetRandomGodName], even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTTOOLTIP_ATEWWNHO_19;[This.GetTitledFirstName] becomes a member of the American Legion.;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_23;Honorable [Root.PrimaryTitle.GetRulerTitle], your extremely generous donation shall aid us greatly in our quest to defend America and [From.Religion.GetHighGodName]! You have my friendship, as well as that of the High Command.\n\nMay [From.Religion.GetHighGodName] protect you,\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_27;Most righteous [Root.GetTitledFirstName], the American Legion is in need of more castles in order to train troops and generate a supporting income. There is a suitable location in your demesne - in [FromFrom.GetName] to be specific. I am willing to pay you 100 gold in exchange for the right to construct a fortress there.\n\nMay [From.Religion.GetRandomGodName] guide your sword,\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_28;The American Legion has constructed a castle in [Root.GetName]!;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_30;Your majesty, this antagonism is completely unwarranted! The American Legion serves the will of the Generals - but do you?\n\nWith anger and sadness,\n\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+expelled_d_american_legion;Expelled the American Legion;;;;;;;;;;;;;x
+
+d_enclave;Enclave;;;;;;;;;;;;;x
+d_enclave_adj;Enclave;;;;;;;;;;;;;x
+COMMANDER;Commander;;;;;;;;;;;;;x
+COMMANDER_FOA;Sir;;;;;;;;;;;;;x
+expel_enclave;Expel the Enclave;;;;;;;;;;;;;x
+expel_enclave_desc;I can drive the Enclave from my realm and seize their castles. However, it is a very impious thing to do...;;;;;;;;;;;;;x
+donate_money_to_enclave;Donate 300¤ to the Enclave;;;;;;;;;;;;;x
+donate_money_to_enclave_desc;I can donate money to the Enclave in exchange for [Player.Religion.GetPietyName] and lifelong respect from the High Command.;;;;;;;;;;;;;x
+
+EVTDESC_ATEWWNHO_32;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Enclave in their struggle to preserve the creations of [From.Religion.GetRandomGodName] in the Rustlands, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTTOOLTIP_ATEWWNHO_32;[This.GetTitledFirstName] becomes a member of the Enclave.;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_36;Honorable [Root.PrimaryTitle.GetRulerTitle], your extremely generous donation will allow us to face the traitors with reneved might! The Enclave salutes you.\n\n[From.Religion.GetHighGodName] with you,\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_40;Most righteous [Root.GetTitledFirstName], the Enclave is in need of more castles in order to train troops and generate a supporting income. There is a suitable location in your demesne - in [FromFrom.GetName] to be specific. I am willing to pay you 100 gold in exchange for the right to construct a fortress there.\n\n[From.Religion.GetRandomGodName] guide you,\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_41;The Enclave has constructed a castle in [Root.GetName]!;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_43;Your majesty, this antagonism is completely unwarranted! The Enclave is composed of real patriots, unlike you!\n\nWith anger and sadness,\n\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+expelled_d_enclave;Expelled the Enclave;;;;;;;;;;;;;x
+
+MOTHER_SUPERIOR;Mother Superior;;;;;;;;;;;;;x
+
+donate_money_to_ursuline_state;Donate 300¤ to St. Ursula's Chosen;;;;;;;;;;;;;x
+donate_money_to_ursuline_state_desc;I can donate money to St. Ursula's Chosen in exchange for [Player.Religion.GetPietyName] and lifelong respect from the Church.;;;;;;;;;;;;;x
+expel_ursuline_state;Expel St. Ursula's Chosen;;;;;;;;;;;;;x
+expel_ursuline_state_desc;I can drive St. Ursula's Chosen from my realm and seize their castles. However, it is a very impious thing to do...;;;;;;;;;;;;;x
+
+expel_uel;Expel the United Empire Loyalists;;;;;;;;;;;;;x
+expel_uel_desc;I can drive the United Empire Loyalists from my realm and seize their castles. However, it is a very impious thing to do...;;;;;;;;;;;;;x
+donate_money_to_uel;Donate 300¤ to the United Empire Loyalists;;;;;;;;;;;;;x
+donate_money_to_uel_desc;I can donate money to the United Empire Loyalists in exchange for [Player.Religion.GetPietyName] and lifelong respect from the Church.;;;;;;;;;;;;;x
+
+EVTDESC_ATEWWNHO_45;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the United Empire Loyalists in their struggle against the infidel, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTTOOLTIP_ATEWWNHO_45;[This.GetTitledFirstName] becomes a member of the UEL.;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_49;Honorable [Root.PrimaryTitle.GetRulerTitle], your extremely generous donation shall aid us greatly in our quest to defend the Church and serve the will of [From.Religion.GetHighGodName]!\n\n[From.Religion.GetHighGodName] with you,\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_53;Most righteous [Root.GetTitledFirstName], the United Empire Loyalists are in need of more castles in order to train troops and generate a supporting income. There is a suitable location in your demesne - in [FromFrom.GetName] to be specific. I am willing to pay you 100 gold in exchange for the right to construct a fortress there.\n\nPax Christi,\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_54;The United Empire Loyalists have constructed a castle in [Root.GetName]!;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_56;Your majesty, this antagonism is completely unwarranted! The Loyalists serve Christ, but, one has to wonder, do you?\n\nWith anger and sadness,\n\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+expelled_d_uel;Expelled the United Empire Loyalists;;;;;;;;;;;;;x
+
+expel_golden_bears;Expel the Golden Bears;;;;;;;;;;;;;x
+expel_golden_bears_desc;I can drive the Golden Bears from my realm and seize their castles. However, it is a very impious thing to do...;;;;;;;;;;;;;x
+donate_money_to_golden_bears;Donate 300¤ to the Golden Bears;;;;;;;;;;;;;x
+donate_money_to_golden_bears_desc;I can donate money to the Golden Bears in exchange for [Player.Religion.GetPietyName] and lifelong respect from the gurus.;;;;;;;;;;;;;x
+vassalize_golden_bears;Vassalize the Golden Bears;;;;;;;;;;;;;x
+vassalize_golden_bears_desc;In exchange for dominion over the [c_palisades.GetName], the Order of Our Lady Liberty is willing to become my vassal.;;;;;;;;;;;;;x
+
+EVTDESC_ATEWWNHO_58;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Golden Bears in their struggle against the infidel, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTTOOLTIP_ATEWWNHO_58;[This.GetTitledFirstName] becomes a member of the Golden Bears.;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_62;Honorable [Root.PrimaryTitle.GetRulerTitle], your extremely generous donation shall aid us greatly in our quest to spread the teachings of [From.Religion.GetRandomGodName] far and wide!\n\nMay [From.Religion.GetRandomGodName] guide you,\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_66;Most wise [Root.GetTitledFirstName], the Golden Bears are in need of more castles in order to train troops and generate a supporting income. There is a suitable location in your demesne - in [FromFrom.GetName] to be specific. I am willing to pay you 100 gold in exchange for the right to construct a fortress there.\n\nMay your way always be clear,\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_67;The Golden Bears have constructed a castle in [Root.GetName]!;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_69;Your majesty, this antagonism is completely unwarranted! The Golden Bears follow the teachings of the gurus, but, one has to wonder, do you?\n\nWith anger and sadness,\n\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+expelled_d_golden_bears;Expelled the Golden Bears;;;;;;;;;;;;;x
+
+expel_golden_archers;Expel the Golden Archers;;;;;;;;;;;;;x
+expel_golden_archers_desc;I can drive the Golden Archers from my realm and seize their castles. However, it is a very impious thing to do...;;;;;;;;;;;;;x
+donate_money_to_golden_archers;Invest 300¤ in the Golden Archers;;;;;;;;;;;;;x
+donate_money_to_golden_archers_desc;I can donate money to the Golden Archers in exchange for [Player.Religion.GetPietyName] and lifelong respect from the gurus.;;;;;;;;;;;;;x
+vassalize_golden_archers;Vassalize the Golden Archers;;;;;;;;;;;;;x
+vassalize_golden_archers_desc;As the High Chairman and an Emperor, it is within my power to vassalize the powerful Golden Archers.;;;;;;;;;;;;;x
+
+EVTDESC_ATEWWNHO_71;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Golden Archers in their duty to accumulate capital, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTTOOLTIP_ATEWWNHO_71;[This.GetTitledFirstName] becomes a member of the Golden Archers.;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_75;Honorable [Root.PrimaryTitle.GetRulerTitle], we are pleased that you have decided to invest in us. This capital shall aid us greatly in our quest to defend the faithful from [From.Religion.GetRandomEvilGodName].\n\nMay [From.Religion.GetRandomGodName] guide you,\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_79;Most wise [Root.GetTitledFirstName], the Golden Archers are in need of more castles in order to train troops and generate a supporting income. There is a suitable location in your demesne - in [FromFrom.GetName] to be specific. I am willing to pay you 100 gold in exchange for the right to construct a fortress there.\n\nMay [From.Religion.GetRandomGodName] guide you,\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_80;The Golden Archers have constructed a castle in [Root.GetName]!;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_82;Your majesty, this antagonism is completely unwarranted! The Golden Archers follow the teachings of the Prophet, but, one has to wonder, do you?\n\nWith anger and sadness,\n\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+expelled_d_golden_archers;Expelled the Golden Archers;;;;;;;;;;;;;x
+
+expel_salvation_army;Expel the Army of Salvation;;;;;;;;;;;;;x
+expel_salvation_army_desc;I can drive the Army of Salvation from my realm and seize their castles. However, it is a very impious thing to do...;;;;;;;;;;;;;x
+donate_money_to_salvation_army;Invest 300¤ in the Army of Salvation;;;;;;;;;;;;;x
+donate_money_to_salvation_army_desc;I can donate money to the Army of Salvation in exchange for [Player.Religion.GetPietyName] and lifelong respect from the Chruch.;;;;;;;;;;;;;x
+
+EVTDESC_ATEWWNHO_84;My [GetFromRelation], [From.GetTitledFirstName], has requested to join the Army of Salvation in their duty to accumulate capital, even though this will forever disinherit [From.GetHerHim].;;;;;;;;;;;;;x
+EVTTOOLTIP_ATEWWNHO_84;[This.GetTitledFirstName] becomes a member of the Army of Salvation.;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_92;Most righteous [Root.GetTitledFirstName], the Army of Salvation is in need of more castles in order to train troops and generate a supporting income. There is a suitable location in your demesne - in [FromFrom.GetName] to be specific. I am willing to pay you 100 gold in exchange for the right to construct a fortress there.\n\nMay [From.Religion.GetRandomGodName] guide you,\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_93;The Army of Salvation have constructed a castle in [Root.GetName]!;;;;;;;;;;;;;x
+EVTDESC_ATEWWNHO_95;Your majesty, this antagonism is completely unwarranted! The Army of Salvation serves Christ, but, one has to wonder, do you?\n\nWith anger and sadness,\n\n[From.GetTitledFirstName];;;;;;;;;;;;;x
+expelled_d_salvation_army;Expelled the Army of Salvation;;;;;;;;;;;;;x

@@ -1,0 +1,580 @@
+###########################################
+#
+# Religious Decisions for Sons of Abraham
+#
+###########################################
+# Written by Henrik Fåhraeus
+###########################################
+
+decisions = {
+	
+	create_supreme_court = {
+		only_playable = yes
+		
+		is_high_prio = yes
+		ai_check_interval = 36
+	
+		potential = {
+			is_playable = yes
+			religion = hamiltonian
+			NOT = { is_title_active = d_supreme_court }
+			has_dlc = "Sons of Abraham"
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+		}
+		
+		allow = {
+			in_seclusion = no
+			prisoner = no
+			is_incapable = no
+			piety = 1000
+			OR = {
+				owns = 63 # DC
+				any_realm_lord = {
+					owns = 63
+				}
+			}
+		}
+		
+		effect = {
+			activate_title = { title = d_supreme_court status = yes }
+			hidden_tooltip = {
+				random_list = {
+					10 = { create_random_priest = {
+						random_traits = yes
+						religion = hamiltonian
+						female = 50
+						age = 30
+					} }
+					10 = { create_random_priest = {
+						random_traits = yes
+						religion = hamiltonian
+						female = 50
+						age = 35
+					} }
+					10 = { create_random_priest = {
+						random_traits = yes
+						religion = hamiltonian
+						female = 50
+						age = 40
+					} }
+					20 = { create_random_priest = {
+						random_traits = yes
+						religion = hamiltonian
+						female = 50
+						age = 45
+					} }
+					20 = { create_random_priest = {
+						random_traits = yes
+						religion = hamiltonian
+						female = 50
+						age = 50
+					} }
+					20 = { create_random_priest = {
+						random_traits = yes
+						religion = hamiltonian
+						female = 50
+						age = 55
+					} }
+					10 = { create_random_priest = {
+						random_traits = yes
+						religion = hamiltonian
+						female = 50
+						age = 60
+					} }
+				}
+				new_character = {
+					d_supreme_court = {
+						grant_title = PREV
+					}
+					wealth = 500
+					opinion = {
+						who = ROOT
+						modifier = opinion_creator_of_rel_heal
+					}
+				}
+				
+				religion_authority = {
+					modifier = papacy_instituted
+					years = 20
+				}
+			}
+			d_supreme_court = {
+				holder_scope = {
+					c_washington = {
+						grant_title = PREV
+						any_de_jure_vassal_title = {
+							limit = {
+								holder_scope = { 
+									OR = {
+										character = ROOT
+										is_liege_or_above = ROOT
+									}
+								}
+							}
+							grant_title = PREVPREV
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				character_event = { id = 39703 }
+			}
+			piety = 1000
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	restore_supreme_court_in_dc = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 36
+	
+		potential = {
+			is_playable = yes
+			independent = yes
+			has_dlc = "Sons of Abraham"
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			religion = hamiltonian
+			is_title_active = d_supreme_court
+			
+			controls_religion = no
+			
+			c_washington = {
+				holder_scope = {
+					OR = {
+						character = ROOT
+						is_liege_or_above = ROOT
+					}
+					ROOT = { religion = hamiltonian }
+					d_supreme_court = {
+						holder_scope = {
+							NOT = { character = PREVPREV }
+							NOT = { is_vassal_or_below = PREVPREV }
+						}
+					}
+				}
+			}
+		}
+		
+		allow = {
+			in_seclusion = no
+			prisoner = no
+			is_incapable = no
+		}
+
+		effect = {		
+			d_supreme_court = {
+				holder_scope = {
+					c_washington = {
+						grant_title = PREV
+						any_de_jure_vassal_title = {
+							limit = {
+								holder_scope = { 
+									OR = {
+										character = ROOT
+										is_liege_or_above = ROOT
+									}
+								}
+							}
+							grant_title = PREVPREV
+						}
+					}
+					save_event_target_as = restored_pope
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_character_flag = restored_supreme_court_pope_in_washington }
+				}
+				piety = 1000
+				set_character_flag = restored_supreme_court_pope_in_washington
+			}
+			hidden_effect = {
+				character_event = { id = ATE_WWW_RELIGION.3 }
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					any_demesne_province = {
+						NOT = { province_id = 63 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				c_washington = {
+					holder_scope = {
+						OR = {
+							ai = no
+							any_liege = { ai = no }  # AI will never take Rome province away from a player
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	become_general_of_army = { #Creates FORSCOM
+		is_high_prio = yes
+		only_independent = yes
+		ai_check_interval = 24
+		
+		potential = {
+			religion = jeffersonian
+			d_forscom = { has_holder = no }
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			primary_title = { higher_tier_than = COUNT } #only dukes and above can see this one
+		}
+		
+		allow = {
+			in_seclusion = no
+			prisoner = no
+			is_incapable = no
+			primary_title = { higher_tier_than = DUKE }
+			num_of_holy_sites = 3 #personally controls 3 holy sites
+			prestige = 250
+			OR = {
+				AND = {
+					piety = 500
+					NOT = { trait = zealous }
+				}
+				AND = {
+					piety = 250
+					trait = zealous
+				}
+			}
+		}
+		
+		effect = {
+			piety = -250
+			d_forscom = { grant_title = ROOT }
+			narrative_event = { id = ATE_WWW_RELIGION.4 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	select_patron_general = {
+		is_high_prio = yes
+		only_playable = yes
+		potential = {
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			religion = jeffersonian
+			is_playable = yes
+			is_adult = yes
+			has_patron_general_trigger = no
+		}
+		allow = {
+			war = no
+			block_general_event_trigger = no
+			piety = 0
+		}
+		effect = {
+			character_event = { id = ATE_WWW_RELIGION.5 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.3 # Slow it down a little
+			}
+		}
+	}
+	
+	become_pirate_king = { #Become the Pirate King/Queen
+		is_high_prio = yes
+		only_independent = yes
+		ai_check_interval = 24
+		
+		potential = {
+			religion = brethren 
+			NOT = { is_title_active = k_pirate_kingdom }
+			NOT = { has_global_flag = pirate_king_hereditary }
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+		}
+		
+		allow = {
+			block_general_event_trigger = no
+			primary_title = { higher_tier_than = COUNT }
+			wealth = 200
+			#custom_tooltip = {
+			#	text = tooltip_vote_at_least_one_kill
+			#	has_character_flag = killed_a_man
+			#}
+			has_pirate_trait = yes
+			prestige = 3000
+			piety = 1000
+		}
+		
+		effect = {
+			wealth = -200
+			if = {
+				limit = { trait = freebooter }
+				prestige = -1750
+				piety = -625
+			}
+			else_if = {
+				limit = { trait = buccaneer }
+				prestige = -1500
+				piety = -500
+			}
+			else = {
+				prestige = -1000
+				piety = -250
+			}
+			if = {
+				limit = {
+					trait = freebooter
+				}
+				remove_trait = freebooter
+			}
+			else_if = {
+				limit = {
+					trait = buccaneer
+				}
+				remove_trait = buccaneer
+			}
+			else_if = {
+				limit = {
+					trait = corsair
+				}
+				remove_trait = corsair
+			}
+			add_trait = pirate_king
+			set_character_flag = pirate_king_flag
+			activate_title = { title = k_pirate_kingdom status = yes }
+			primary_title = {
+				show_scope_change = no
+				k_pirate_kingdom = {
+					show_scope_change = no
+					grant_title = ROOT
+					copy_title_laws = PREV
+					hidden_tooltip = {
+						set_preferred_capital = PREV
+						add_law = succ_brethren_elective
+					}
+				}
+			}
+			set_global_flag = pirate_king
+			narrative_event = { id = ATE_WWW_PIRATE.5 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	vassalize_code_keepers = {
+		is_high_prio = yes
+		only_independent = yes
+		ai_check_interval = 24
+		potential = {
+			is_alternate_start = no
+			has_landed_title = k_pirate_kingdom
+			religion = brethren
+			is_title_active = d_code_keepers
+			d_code_keepers = {
+				holder_scope = {
+					NOT = { has_truce = ROOT }
+					ROOT = { NOT = { has_truce = PREV } }
+					liege = {
+						NOT = { character = ROOT }
+					}
+					NOT = { num_of_count_titles = 3 }
+					independent = yes
+					primary_title = { title = d_code_keepers }
+				}
+			}
+			#NOT = { has_character_modifier = expelled_d_code_keepers }
+		}
+		
+		allow = {
+			wealth = 350
+			piety = 2000
+			controls_religion = yes
+		}
+		
+		effect = {
+			wealth = -350
+			d_code_keepers = {
+				holder_scope = {
+					wealth = 350
+					ROOT = {
+						set_defacto_vassal = PREV
+					}
+				}
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	pirate_king_hereditary = { #Become the Hereditary Pirate King/Queen
+		is_high_prio = yes
+		ai_check_interval = 12
+		only_independent = yes
+		
+		potential = {
+			religion = brethren 
+			NOT = { has_global_flag = pirate_king_hereditary }
+			has_landed_title = k_pirate_kingdom
+			k_pirate_kingdom = {
+				has_law = succ_brethren_elective
+			}
+		}
+		
+		allow = {
+			block_general_event_trigger = no
+			war = no
+			has_pirate_trait = yes
+			OR = {
+				AND = {
+					prestige = 8000
+					piety = 2000
+				}
+				AND = {
+					any_owned_bloodline = {
+						has_bloodline_flag = bloodline_pirate
+					}
+					prestige = 6000
+					piety = 1500
+				}
+			}
+		}
+		
+		effect = {
+			prestige = -4000
+			piety = -1500
+			set_global_flag = pirate_king_hereditary
+			k_pirate_kingdom = {
+				add_law = succ_primogeniture
+				save_persistent_event_target = {
+					name = first_pirate_king
+					scope = owner
+				}
+			}
+			hidden_tooltip = { 
+				if = { 
+					limit = { this_has_super_cool_nickname_trigger = no }
+					random_list = { 
+						20 = { 
+							trigger = { age = 50 }
+							give_nickname = nick_the_white_raven 
+						} 
+						20 = { 
+							trigger = { is_female = no }
+							give_nickname = nick_the_salt_snake 
+						} 
+						20 = { 
+							trigger = { is_female = yes }
+							give_nickname = nick_the_salt_viper 
+						} 
+						20 = { 
+							trigger = { is_female = yes is_attractive_trigger = yes }
+							give_nickname = nick_the_siren 
+						} 
+						20 = { 
+							trigger = { is_female = no }
+							give_nickname = nick_the_wyrm 
+						} 
+						20 = { 
+							trigger = { is_female = yes is_unattractive_trigger = yes }
+							give_nickname = nick_the_fury 
+						} 
+						20 = { 
+							trigger = { is_female = no }
+							give_nickname = nick_the_sea_devil 
+						} 
+						10 = { 
+							give_nickname = nick_the_stormforged 
+						} 
+						10 = { 
+							give_nickname = nick_the_tempest_of_capital 
+						} 
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = { 
+						any_owned_bloodline = { # Not already has a Viking bloodline.
+							OR = {
+								has_bloodline_flag = bloodline_historical_norse
+								has_bloodline_flag = more_raiders_bloodline
+								has_bloodline_flag = bloodline_pirate
+							}
+						}
+					}
+				}
+				if = { 
+					limit = { is_female = no }
+					create_bloodline = {
+						type = pirate_king_bloodline
+					}
+					set_bloodline_founder_religion_flag_effect = yes
+					new_bloodline = {
+						set_description = "bloodline_desc_seaking_bloodline_pirate"
+						random_list = { 
+							20 = { set_name = bloodline_seaking_pirate_random_a } #Randomize names to avoid too much repetition.
+							20 = { set_name = bloodline_seaking_pirate_random_b }
+							20 = { set_name = bloodline_seaking_pirate_random_c }
+							20 = { set_name = bloodline_seaking_pirate_random_d } 
+						}
+					}
+				}
+				else = { 
+					create_bloodline = {
+						type = pirate_queen_bloodline
+					}
+					set_bloodline_founder_religion_flag_effect = yes
+					new_bloodline = {
+						set_description = "bloodline_desc_seaking_bloodline_pirate"
+						random_list = { 
+							20 = { set_name = bloodline_seaqueen_pirate_random_a } #Randomize names to avoid too much repetition.
+							20 = { set_name = bloodline_seaqueen_pirate_random_b }
+							20 = { set_name = bloodline_seaqueen_pirate_random_c }
+							20 = { set_name = bloodline_seaqueen_pirate_random_d } 
+						}
+					}
+				}
+			}
+			narrative_event = { id = ATE_WWW_PIRATE.9 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

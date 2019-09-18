@@ -1,0 +1,312 @@
+#GetHouseOfWorship 			Gets name for house of worship of character's religion (character)
+#GetReligiousRite 			Gets name for a common religious rite (character)
+#GetReligionWarrior
+#GetReligionWarriorPlural
+#GetReligiousPerson
+#GetArtifactSource			Gets name for bodypart artifact's source (saint, holy man, hero)
+#GetArtifactSourceCap
+
+#GetBeastString
+
+###RELIGION###
+defined_text = {
+	name = GetWhoTheyServe
+
+	text = {
+		localisation_key = title_hamiltonian_justice
+		trigger = {
+			religion = hamiltonian
+		}
+	}
+	text = {
+		localisation_key = GOD_LADY_LIBERTY
+		trigger = {
+			religion = libertarian
+		}
+	}
+}
+
+defined_text = {
+	name = GetHLGroupName
+
+	text = {
+		localisation_key = JUDICARY
+		trigger = {
+			religion = hamiltonian
+		}
+	}
+	text = {
+		localisation_key = d_libertarian
+		trigger = {
+			religion = libertarian
+		}
+	}
+}
+
+defined_text = {
+	name = GetAmericanistPilgrimageCities
+
+	text = {
+		localisation_key = americanist_pilgrimage_cities_jeffersonian
+		trigger = {
+			religion = jeffersonian
+		}
+	}
+	text = {
+		localisation_key = americanist_pilgrimage_cities_libertarian
+		trigger = {
+			religion = libertarian
+		}
+	}
+	fallback_text = {
+		localisation_key = americanist_pilgrimage_cities_americanist
+	}
+}
+
+defined_text = {
+	name = GetCurrentAmericanistPilgrimageCity
+
+	text = {
+		localisation_key = americanist_pilgrimage_boston
+		trigger = {
+			has_character_flag = on_pilgrimage_boston
+		}
+	}
+	text = {
+		localisation_key = americanist_pilgrimage_new_york
+		trigger = {
+			OR = {
+				has_character_flag = on_pilgrimage_newyork
+				has_character_flag = on_pilgrimage_newyork_l
+			}
+		}
+	}
+	text = {
+		localisation_key = americanist_pilgrimage_philadelphia
+		trigger = {
+			OR = {
+				has_character_flag = on_pilgrimage_philadelphia
+				has_character_flag = on_pilgrimage_philadelphia_l
+			}
+		}
+	}
+	text = {
+		localisation_key = americanist_pilgrimage_washington
+		trigger = {
+			OR = {
+				has_character_flag = on_pilgrimage_washington
+				has_character_flag = on_pilgrimage_washington_l
+				has_character_flag = on_pilgrimage_washington_j
+			}
+		}
+	}
+	text = {
+		localisation_key = americanist_pilgrimage_richmond
+		trigger = {
+			OR = {
+				has_character_flag = on_pilgrimage_richmond
+				has_character_flag = on_pilgrimage_richmond_j
+			}
+		}
+	}
+	text = {
+		localisation_key = americanist_pilgrimage_alamo
+		trigger = {
+			has_character_flag = on_pilgrimage_alamo
+		}
+	}
+	text = {
+		localisation_key = americanist_pilgrimage_benning
+		trigger = {
+			has_character_flag = on_pilgrimage_benning
+		}
+	}
+	text = {
+		localisation_key = americanist_pilgrimage_bragg
+		trigger = {
+			has_character_flag = on_pilgrimage_bragg
+		}
+	}
+	text = {
+		localisation_key = americanist_pilgrimage_nashville
+		trigger = {
+			has_character_flag = on_pilgrimage_nashville
+		}
+	}
+	text = {
+		localisation_key = americanist_pilgrimage_palisades
+		trigger = {
+			has_character_flag = on_pilgrimage_palisades
+		}
+	}
+}
+
+defined_text = {
+    name = GetPirateMonarch
+
+    text = {
+        localisation_key = PIRATE_QUEEN
+        trigger = {
+            is_female = yes
+        }
+    }
+    fallback_text = {
+        localisation_key = PIRATE_KING
+    }
+}
+
+defined_text = {
+	name = GetPriest
+	text = {
+		trigger = { 
+			OR = {
+				religion = falling_star
+				religion = apostolic
+				religion = sacred_heart
+				religion = gracia_divina
+			}
+		}
+		localisation_key = PADRE
+	}
+	text = {
+		trigger = { 
+			OR = {
+				religion = midewiwin_reformed
+				religion = midewiwin
+				religion = raven_tales_reformed
+				religion = raven_tales
+			}
+		}
+		localisation_key = SHAMAN
+	}
+	text = {
+		trigger = { 
+			OR = {
+				religion = norse_pagan_reformed
+				religion = norse_pagan
+			}
+		}
+		localisation_key = GODI
+	}
+	text = {
+		trigger = { 
+			OR = {
+				religion = occultist_reformed
+				religion = occultist
+				religion = brethren
+			}
+		}
+		localisation_key = PRIEST_LOREKEEPER
+	}
+	text = {
+		trigger = { 
+			OR = {
+				religion = revelationist
+				religion = revelationist_reformed
+			}
+		}
+		localisation_key = THAUMATURGE
+	}
+	text = {
+		trigger = { 
+			OR = {
+				religion = rust_cultist
+				religion = chrome_cultist
+			}
+		}
+		localisation_key = TECHPRIEST
+	}
+	text = {
+		trigger = { 
+			OR = {
+				religion = consumerist
+				religion = monetarist
+			}
+		}
+		localisation_key = ENTREPENUER
+	}
+	text = {
+		trigger = { 
+			OR = {
+				religion = jeffersonian
+			}
+		}
+		localisation_key = JUDGE_ADVOCATE
+	}
+	text = {
+		trigger = { 
+			OR = {
+				religion = americanist
+				religion = hamiltonian
+				religion = libertarian
+			}
+		}
+		localisation_key = JUDGE
+	}
+	text = {
+		trigger = { 
+			religion = nousthreskeia
+		}
+		localisation_key = PREACHER
+	}
+	text = {
+		trigger = { 
+			OR = {
+				religion = jewish
+				religion = reform
+				religion = meshichist
+			}
+		}
+		localisation_key = RABBI
+	}
+	text = {
+		trigger = { 
+			OR = {
+				religion = gaian
+				religion = celtic_pagan_reformed
+				religion = celtic_pagan
+			}
+		}
+		localisation_key = DRUID
+	}
+	text = {
+		trigger = { 
+			OR = {
+				religion = cetic
+				religion = hindu
+			}
+		}
+		localisation_key = GURU
+	}
+	text = {
+		trigger = { 
+			religion = peyotist
+		}
+		localisation_key = ROADMAN
+	}
+	text = {
+		trigger = { 
+			OR = {
+				religion = espiritista
+				religion = espiritista_reformed 
+			}
+		}
+		localisation_key = PRIEST_MEDIUM
+	}
+	fallback_text = {
+		localisation_key = PRIEST
+	}
+}
+
+defined_text = {
+	name = GetPriestPlural
+	text = {
+		trigger = { 
+			religion = peyotist
+		}
+		localisation_key = ROADMEN
+	}
+	fallback_text = {
+		localisation_key = PRIEST_PLURAL
+	}
+}
