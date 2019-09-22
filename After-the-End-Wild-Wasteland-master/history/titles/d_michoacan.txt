@@ -1,4 +1,0 @@
-2598.11.28 = {
-	holder = 1325051
-	law = succ_primogeniture
-}

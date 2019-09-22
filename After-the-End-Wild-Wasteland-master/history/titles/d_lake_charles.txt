@@ -1,4 +1,0 @@
-2626.5.30 = {
-	liege = k_louisiana
-	holder = 1803061
-}
