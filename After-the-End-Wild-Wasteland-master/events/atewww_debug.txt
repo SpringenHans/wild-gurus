@@ -121,43 +121,12 @@ character_event = {
 	id = ATE_WWW_DEBUG.3
 	desc = "DEBUG"
 	picture = GFX_evt_capitol_building
-	hide_window = yes
 	
 	is_triggered_only = yes
-	trigger = {
-		is_ruler = yes
-		is_landed = yes
-		mercenary = no
-		temporary = no
-		religion = gaian
-		any_demesne_title = {
-			is_law_potential = enatic_cognatic_succession
-			has_law = enatic_succession
-		}
-	}
 	
 	option = {
-		any_demesne_title = {
-			limit = { is_law_potential = enatic_cognatic_succession has_law = enatic_succession }
-			log = "change succession law to enatic_cognatic in [This.GetName]"
-			add_law = { law = enatic_cognatic_succession cooldown = no opinion_effect = no }
-		}
-		ai_chance = {
-			factor = 1
-			additive_modifier = {
-				value = 1
-			}
-		}
-	}
-
-	option = {
-		log = "AI CHANCE 2 OPTION B"
-		ai_chance = {
-			factor = 1
-			additive_modifier = {
-				value = 1
-			}
-		}
+		name = "enable americanists ghws"
+		set_global_flag = liberation_wars_unlocked
 	}
 
 }
@@ -190,4 +159,58 @@ character_event = {
 		}
 	}
 
+}
+
+character_event = {
+	id = ATE_WWW_DEBUG.5
+	desc = "DEBUG"
+	picture = GFX_evt_capitol_building
+	
+	is_triggered_only = yes
+	
+	option = {
+		log = "ATE_WWW_DEBUG.5: fire for [Root.GetBestName], crusade for [crusade_title.GetName]"
+		any_independent_ruler = {
+			limit = {
+				NOT = { character = ROOT }
+				religion = ROOT
+				NOT = { war_with = ROOT }
+				any_realm_title = {
+					de_jure_liege_or_above = event_target:crusade_title
+				}
+			}
+			log = "ATE_WWW_DEBUG.5: found [This.GetBestName]"
+			pledge_crusade_defense = yes
+			join_defender_wars = ROOT
+		}
+	}
+
+}
+
+character_event = {
+	id = ATE_WWW_DEBUG.6
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	ai = no
+	only_playable = yes
+	
+	trigger = {
+		is_save_game = yes
+	}
+	
+	immediate = {
+		any_character = {
+			trigger_switch = {
+				on_trigger = has_character_modifier
+				devote_of_macarthur = { remove_character_modifier = devote_of_macarthur add_trait = militarist_macarthur }
+				devote_of_sherman = { remove_character_modifier = devote_of_sherman add_trait = militarist_sherman }
+				devote_of_patton = { remove_character_modifier = devote_of_patton add_trait = militarist_patton }
+				devote_of_custer = { remove_character_modifier = devote_of_custer add_trait = militarist_custer }
+				devote_of_lee = { remove_character_modifier = devote_of_lee add_trait = militarist_lee }
+				devotee_of_butler = { remove_character_modifier = devotee_of_butler add_trait = militarist_butler }
+			}
+		}
+	}
 }

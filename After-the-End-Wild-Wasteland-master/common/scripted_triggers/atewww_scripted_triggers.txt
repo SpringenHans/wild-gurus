@@ -81,12 +81,12 @@ females_can_hold_minor_commander_title_trigger = {
 
 has_patron_general_trigger = {
 	OR = {
-		has_character_modifier = devote_of_macarthur
-		has_character_modifier = devote_of_sherman
-		has_character_modifier = devote_of_patton
-		has_character_modifier = devote_of_custer
-		has_character_modifier = devote_of_lee
-		has_character_modifier = devotee_of_butler
+		trait = militarist_macarthur
+		trait = militarist_sherman
+		trait = militarist_patton
+		trait = militarist_custer
+		trait = militarist_lee
+		trait = militarist_butler
 	}
 }
 
@@ -136,5 +136,42 @@ has_pirate_trait = {
 		trait = buccaneer
 		trait = corsair
 		trait = pirate_king
+	}
+}
+
+has_identified_medicine_to_take = {
+	any_artifact = {
+		artifact_type = atewww_pills
+		OR = {
+			AND = {
+				has_artifact_flag = atewww_pills_identified_as_antibiotics
+				ROOT = {
+					OR = {
+						trait = has_tuberculosis
+						trait = has_typhoid_fever
+						trait = has_typhus
+						trait = has_bubonic_plague
+						trait = syphilitic
+						trait = dysentery
+						trait = food_poisoning
+						trait = pneumonic
+						trait = ill
+					}
+				}
+			}
+			AND = {
+				has_artifact_flag = atewww_pills_identified_as_antivirals
+				ROOT = {
+					OR = {
+						trait = has_measles
+						trait = has_small_pox
+						trait = has_aztec_disease
+						trait = flu
+						trait = rabies
+						trait = ill
+					}
+				}
+			}
+		}
 	}
 }

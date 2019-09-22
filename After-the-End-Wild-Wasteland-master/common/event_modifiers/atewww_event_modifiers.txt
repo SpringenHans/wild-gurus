@@ -41,7 +41,33 @@ devotee_of_butler = {
 	local_movement_speed = 0.05
 	icon = 1
 }
-
+taken_vitamins = {
+	health_penalty = 1.5
+	icon = 50
+}
+taken_painkillers = {
+	health_penalty = 2.5
+	icon = 50
+}
+pill_side_effects = {
+	health_penalty = -1.5
+	icon = 55
+}
+taken_viagra = {
+	icon = 75
+	health_penalty = -0.1
+	fertility = 0.75
+	sex_appeal_opinion = 10
+}
+taken_viagra_female = {
+	icon = 75
+	health_penalty = -0.1
+	fertility = 0.15
+	sex_appeal_opinion = 10
+}
+taken_medicine_recently = {
+	icon = 50
+}
 expelled_d_libertarian = {
 	icon = 35
 }
@@ -70,6 +96,18 @@ expelled_d_salvation_army = {
 	icon = 35
 }
 
+expelled_d_saint_expedit = {
+	icon = 35
+}
+
+expelled_d_lightbringers = {
+	icon = 35
+}
+
+expelled_d_dead_sun = {
+	icon = 35
+}
+
 looted_lady_liberty = {
 	icon = 64
 	libertarian_opinion = -50
@@ -78,14 +116,4 @@ looted_lady_liberty = {
 upgraded_lady_liberty = {
 	icon = 17
 	libertarian_opinion = 10
-}
-secret_neutic_community = {
-	icon = 18
-	is_visible = {
-		society_member_of = secret_religious_society_neutic
-	}
-}
-unenlightened_guru = {
-	local_revolt_risk = 0.01
-	icon = 35
 }

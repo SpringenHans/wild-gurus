@@ -41,12 +41,12 @@ give_ROOT_random_female_libertarian_name = {
 }
 
 remove_patron_general_trigger = {
-	remove_character_modifier = devote_of_macarthur
-	remove_character_modifier = devote_of_sherman
-	remove_character_modifier = devote_of_patton
-	remove_character_modifier = devote_of_custer
-	remove_character_modifier = devote_of_lee
-	remove_character_modifier = devotee_of_butler
+	remove_trait = militarist_macarthur
+	remove_trait = militarist_sherman
+	remove_trait = militarist_patton
+	remove_trait = militarist_custer
+	remove_trait = militarist_lee
+	remove_trait = militarist_butler
 }
 
 give_ROOT_random_name = {
@@ -89,6 +89,64 @@ give_ROOT_random_name = {
 				}
 			}
 			ROOT = { copy_name = PREV }
+		}
+	}
+}
+
+# fired from a law, ROOT is title
+on_government_change = {
+	holder_scope = {
+		if = {
+			limit = {
+				government = militarist_government
+				ROOT = { has_title_flag = was_feudal }
+			}
+			character_event = { id = ATE_WWW_RELIGION.15 }
+			ROOT = { 
+				clr_title_flag = was_feudal 
+				set_title_flag = was_militarist
+			}
+		}
+		else_if = {
+			limit = { 
+				NOT = { government = militarist_government }
+			}
+			if = {
+				limit = { ROOT = { has_law = succ_militarist_appointment } }
+				if = {
+					limit = { has_law = ze_administration_laws_0 }
+					ROOT = { add_law = { law = succ_gavelkind cooldown = no opinion_effect = no } }
+				}
+				else = {
+					ROOT = { add_law = { law = succ_primogeniture cooldown = no opinion_effect = no } }
+				}
+			}
+			ROOT = {
+				if = {
+					limit = {
+						higher_tier_than = DUKE
+						has_law = vassal_wars_law_1
+						NOT = { is_law_allowed = vassal_wars_law_1 }
+					}
+					add_law = { law = vassal_wars_law_0 cooldown = no opinion_effect = no }
+				}
+				if = {
+					limit = {
+						higher_tier_than = DUKE
+						has_law = out_of_realm_inheritance_law_1
+						NOT = { is_law_allowed = out_of_realm_inheritance_law_1 }
+					}
+					add_law = { law = out_of_realm_inheritance_law_0 cooldown = no opinion_effect = no }
+				}
+			}
+			if = {
+				limit = { ROOT = { has_title_flag = was_militarist } }
+				character_event = { id = ATE_WWW_RELIGION.12 }
+			}
+			ROOT = { 
+				clr_title_flag = was_militarist 
+				set_title_flag = was_feudal 
+			}
 		}
 	}
 }

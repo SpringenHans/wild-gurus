@@ -120,17 +120,9 @@ character_event = {
 				log = "miscATEWW.1: [Root.GetBestName] 50/50"
 				character_event = { id = miscATEWW.5 }
 			}
-		}
-		if = {
-			limit = { is_female = yes }
 			if = {
-				limit = {
-					religion = libertarian
-				}
+				limit = { is_female = yes religion = libertarian }
 				give_ROOT_random_female_libertarian_name = yes
-			}
-			else = {
-				give_ROOT_random_name = yes
 			}
 		}
 		if = {
@@ -576,6 +568,18 @@ character_event = {
 		c_2000060 = {
 			create_family_palace = yes
 		}		
+		# trump-clinton rivarly
+		if = {
+			limit = { 
+				c_1788013 = { dynasty_head = { is_alive = yes } }
+			}
+			c_1788013 = { #starting clinton character
+				dynasty_head = { 
+					add_rival=ROOT
+					ROOT = { add_rival=PREV }
+				} 
+			}
+		}
 		set_global_flag = miscATEWW_4_fired
 	}
 	
@@ -614,6 +618,11 @@ character_event = {
 			modifier = {
 				factor = 4
 				has_character_flag = 80_20_female
+			}
+			modifier = {
+				factor = 0
+				is_ruler = yes
+				primary_title = { has_law = agnatic_succession }
 			}
 		}
 	}

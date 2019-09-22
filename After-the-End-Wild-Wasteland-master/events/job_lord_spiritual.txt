@@ -304,6 +304,47 @@ character_event = {
 			}
 		}
 
+		modifier = {
+			factor = 0.75
+			has_job_action = action_inquisition
+			location = {
+				any_province_holding = { is_holy_site = ROOT }
+				NOT = {
+					religion_scope = {
+						PREV = {
+							any_province_holding = { is_holy_site = PREVPREV }
+						}
+					}
+				}
+			}
+		}
+
+		modifier = {
+			factor = 1.25
+			has_job_action = action_inquisition
+			location = {
+				any_province_holding = { is_holy_site = ROOT }
+				religion_scope = {
+					PREV = {
+						any_province_holding = { is_holy_site = PREVPREV }
+					}
+				}
+			}
+		}
+
+		modifier = {
+			factor = 1.5
+			has_job_action = action_inquisition
+			location = {
+				NOT = { any_province_holding = { is_holy_site = ROOT } }
+				religion_scope = {
+					PREV = {
+						any_province_holding = { is_holy_site = PREVPREV }
+					}
+				}
+			}
+		}
+
 	}
 
 	option = {
@@ -356,7 +397,6 @@ letter_event = {
 		}
 		if = {
 			limit = {
-				is_heretic = no
 				rightful_religious_head_scope = {
 					ROOT = {
 						NOT = { excommunicated_for = PREV }

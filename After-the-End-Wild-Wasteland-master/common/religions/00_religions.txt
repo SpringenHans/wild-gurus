@@ -61,6 +61,7 @@ afro_syncretic = {
 
 		intermarry = brethren
 	}
+	
 	voodoo = {
 		graphical_culture = africangfx
 		secondary_event_pictures = west_african_pagan
@@ -85,21 +86,46 @@ afro_syncretic = {
 			GOD_KALFU
 		}
 		
+		can_excommunicate = no
+		can_grant_divorce = yes
+		can_grant_invasion_cb = invasion
+		can_grant_claim = yes
+		autocephaly = yes
 		priests_can_marry = yes
 		female_temple_holders = yes
 		allows_matrilineal_marriage = yes
 		allow_looting = yes
 		allow_rivermovement = yes
 		can_demand_religious_conversion = no
+		defensive_attrition = yes
+		hard_to_convert = yes
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
 		
 		religious_clothing_head = 3
 		religious_clothing_priest = 3
+		
 		intermarry = rastafarian
 		intermarry = santeria
 		intermarry = candomble
 		intermarry = espiritista
 		intermarry = espiritista_reformed
-		
 		intermarry = brethren
 	}
 	santeria = {
@@ -752,6 +778,7 @@ christian = {
 		female_temple_holders = yes
 		male_temple_holders = no
 		priests_can_inherit = no
+		priests_can_marry = no
 		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
 		allow_rivermovement = yes
 
@@ -796,8 +823,10 @@ christian = {
 		crusade_name = CRUSADE
 
 		can_retire_to_monastery = no
-		priests_can_inherit = no
+		priests_can_inherit = yes
+		priests_can_marry = yes
 		female_temple_holders = yes
+		male_temple_holders = yes
 		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
 		allow_rivermovement = yes
 
@@ -1649,7 +1678,7 @@ pacific = {
 		secondary_event_pictures = sunni
 
 		icon = 44
-		heresy_icon = 44
+		heresy_icon = 76
 		
 		color = { 0.7 0.52 0.90 }
 		
@@ -1663,6 +1692,10 @@ pacific = {
 		
 		evil_god_names = {
 			THE_UNENLIGHTENED MOLOCH GOD_MAMMON
+		}
+		
+		character_modifier = {
+			neognostic_opinion = 5
 		}
 		
 		can_grant_divorce = yes
@@ -1684,11 +1717,8 @@ pacific = {
 		intermarry = shinto
 		intermarry = nousthreskeia
 		intermarry = neognostic
-		
-		character_modifier = {
-			neognostic_opinion = 5
-		}
 	}
+	
 	neutic = {
 		graphical_culture = chinesegfx
 		secondary_event_pictures = sunni
@@ -1716,9 +1746,6 @@ pacific = {
 			neognostic_opinion = 5
 			learning = 2
 		}
-		
-		priests_can_inherit = yes
-		priests_can_marry = yes
 		allow_rivermovement = yes
 		can_retire_to_monastery = yes
 		
@@ -1772,6 +1799,7 @@ pacific = {
 		raised_vassal_opinion_loss = no
 		allows_matrilineal_marriage = yes
 		women_can_take_consorts = yes
+		defensive_attrition = yes
 		max_consorts = 3 #can take concubines
 		men_can_take_consorts = no
 		male_temple_holders = no
@@ -1779,6 +1807,7 @@ pacific = {
 		religious_clothing_head = 16
 		religious_clothing_priest = 16
 		
+		intermarry = neutic
 		intermarry = cetic
 		intermarry = shinto
 		intermarry = nousthreskeia
@@ -1820,6 +1849,7 @@ pacific = {
 		priest_title = PRIEST
 		piety_name = PURITY
 		
+		intermarry = neutic
 		intermarry = gaian
 		intermarry = cetic
 		intermarry = nousthreskeia
@@ -1860,6 +1890,7 @@ pacific = {
 		priest_title = PREACHER
 		piety_name = CONSCIOUSNESS
 		
+		intermarry = neutic
 		intermarry = gaian
 		intermarry = cetic
 		intermarry = shinto
@@ -2217,6 +2248,7 @@ mesoamerican_gods = {
 		feminist = yes
 		allows_matrilineal_marriage = yes
 		peace_piety_gain = 1.0 #Gains 1 extra piety per month while at peace
+		aggression = 0.5
 		
 		crusade_name = CRUSADE
 		scripture_name = THE_DREAMSPELL
@@ -2300,6 +2332,7 @@ oldworld = {
 		female_temple_holders = yes
 		feminist = yes
 		allows_matrilineal_marriage = yes
+		can_call_crusade = yes
 		
 		priests_can_marry = yes
 		
@@ -2343,10 +2376,10 @@ oldworld = {
 
 		interface_skin = { americanist_interface }
 		
-		high_god_name = GOD_MADISON
+		high_god_name = GOD_THE_JUSTICES
 
 		god_names = {
-			GOD_THE_FOUNDERS GOD_WASHINGTON GOD_JEFFERSON GOD_THE_FLAG
+			GOD_THE_FOUNDERS GOD_THE_JUSTICES GOD_WASHINGTON GOD_JEFFERSON GOD_THE_FLAG
 			GOD_ADAMS GOD_MADISON GOD_LINCOLN GOD_UNCLE_SAM
 		}
 		
@@ -2367,6 +2400,7 @@ oldworld = {
 		allow_rivermovement = yes
 		feminist = yes
 		allows_matrilineal_marriage = yes
+		can_call_crusade = yes
 		
 		priests_can_marry = yes
 
@@ -2410,31 +2444,35 @@ oldworld = {
 		high_god_name = GOD_THE_GENERALS
 
 		god_names = {
-			GOD_THE_PRESIDENTS GOD_WASHINGTON GOD_ROOSEVELT GOD_THE_FLAG
+			GOD_WASHINGTON GOD_ROOSEVELT GOD_THE_FLAG
 			GOD_EISENHOWER GOD_REAGAN GOD_TRUMAN GOD_JACKSON GOD_UNCLE_SAM
 			GOD_CHAIN_OF_COMMAND GOD_HIGH_COMMAND GOD_THE_GENERALS
 		}
+		evil_god_names = { # replaced references to 90s conspiracies with good old fashioned Revolutionary War-inspired ones
+			THE_TRAITOR THE_ILLUMINATI FASCISM COMMUNISM THE_DRAFT_DODGER
+		}
 
-		crusade_name = LIBERATION_WAR
+		crusade_name = MILITARY_OPERATION
 		scripture_name = THE_ARTICLES_OF_WAR
 		priest_title = JUDGE_ADVOCATE
 		piety_name = PATRIOTISM
 		
 		priests_can_marry = yes
+		can_excommunicate = yes
 		can_grant_claim = yes
 		can_grant_divorce = yes
 		allow_viking_invasion = yes
-		can_grant_invasion_cb = invasion
+		can_call_crusade = yes
 		allow_rivermovement = yes
 		allow_looting = yes
 		seafarer = yes
-		female_temple_holders = yes
+		female_temple_holders = no
 		feminist = no
 		peace_prestige_loss = yes
 		raised_vassal_opinion_loss = no
 		hard_to_convert = yes
 		
-		aggression = 1.5 # ALL THE LAND IS HOLY
+		aggression = 2 # ALL THE LAND IS HOLY
 
 		intermarry = americanist
 		intermarry = hamiltonian

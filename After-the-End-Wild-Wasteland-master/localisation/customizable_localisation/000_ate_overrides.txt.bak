@@ -134,10 +134,6 @@ defined_text = {
 	}
 	text = {
 		localisation_key = string_Temple
-		trigger = { religion = neutic }
-	}
-	text = {
-		localisation_key = string_Temple
 		trigger = { religion = gaian }
 	}
 	text = {
@@ -349,13 +345,6 @@ defined_text = {
 	}
 	
 	text = {
-		localisation_key = String_Neutic
-		trigger = {
-			religion = neutic
-		}
-	}
-	
-	text = {
 		localisation_key = String_Rasta
 		trigger = {
 			religion = rastafarian
@@ -549,13 +538,6 @@ defined_text = {
 	}
 	
 	text = {
-		localisation_key = String_Neutic
-		trigger = {
-			religion = neutic
-		}
-	}
-	
-	text = {
 		localisation_key = String_Rasta
 		trigger = {
 			religion = rastafarian
@@ -738,13 +720,6 @@ defined_text = {
 	}
 	
 	text = {
-		localisation_key = String_Neutics
-		trigger = {
-			true_religion_neutic_trigger = yes
-		}
-	}
-	
-	text = {
 		localisation_key = String_Rastas
 		trigger = {
 			true_religion_rastafarian_trigger = yes
@@ -887,13 +862,6 @@ defined_text = {
 		localisation_key = String_Cetic
 		trigger = {
 			true_religion_cetic_trigger = yes
-		}
-	}
-	
-	text = {
-		localisation_key = String_Neutic
-		trigger = {
-			true_religion_neutic_trigger = yes
 		}
 	}
 	
@@ -1083,13 +1051,6 @@ defined_text = {
 	}
 	
 	text = {
-		localisation_key = String_Neutic
-		trigger = {
-			true_religion_neutic_trigger = yes
-		}
-	}
-	
-	text = {
 		localisation_key = String_Rasta
 		trigger = {
 			true_religion_rastafarian_trigger = yes
@@ -1272,11 +1233,6 @@ defined_text = {
 	text = { 
 		localisation_key = GOD_THE_EMPEROR
 		trigger = { true_religion_cetic_trigger = yes }
-	}
-	##NEUTIC##
-	text = { 
-		localisation_key = GOD_THE_GURUS
-		trigger = { true_religion_neutic_trigger = yes }
 	}
 	text = { 
 		localisation_key = GOD_THE_EMPEROR
@@ -1524,10 +1480,7 @@ defined_text = {
     text = { 
         localisation_key = String_Writings
         trigger = { 
-            OR = {
-				true_religion_cetic_trigger = yes
-				true_religion_neutic_trigger = yes
-			}
+            true_religion_cetic_trigger = yes
         }
     }
     text = { 
@@ -1674,13 +1627,6 @@ defined_text = {
 	}
 	
 	text = {
-		localisation_key = String_Neutic #Neutic
-		trigger = {
-			true_religion_neutic_trigger = yes
-		}
-	}
-	
-	text = {
 		localisation_key = String_Rasta
 		trigger = {
 			true_religion_rastafarian_trigger = yes
@@ -1814,7 +1760,6 @@ defined_text = {
 		trigger = {
 			OR = {
 				is_indian_secret_religious_society_member_trigger = yes 
-				society_member_of = secret_religious_society_neutic
 				#is_bon_secret_religious_society_member_trigger = yes
 				#is_apostolic_secret_religious_society_member_trigger = yes
 			}
@@ -1971,12 +1916,7 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_Shubhaste_panthanah_santu
-		trigger = { 
-			OR = { 
-				is_indian_secret_religious_society_member_trigger = yes 
-				society_member_of = secret_religious_society_neutic
-			}
-		}
+		trigger = { is_indian_secret_religious_society_member_trigger = yes }
 	}
 	text = {
 		localisation_key = String_May_Yehovah_guide_you #What the fuck Paradox
@@ -2193,12 +2133,7 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_Yinyang_symbol
-		trigger = { 
-			OR = {
-				true_religion_cetic_trigger = yes 
-				true_religion_neutic_trigger = yes
-			}
-		}
+		trigger = { true_religion_cetic_trigger = yes }
 	}
 	text = {
 		localisation_key = String_torii_symbol
@@ -3239,7 +3174,6 @@ defined_text = {
 			OR = {
 				religion = gaian
 				religion = cetic
-				religion = neutic
 			}
 		}
 	}
@@ -3310,7 +3244,7 @@ defined_text = {
 		} 
 	}
 	text = {
-		localisation_key = String_seiðr
+		localisation_key = String_sei�r
 		trigger = { society_member_of = the_trollcrafters }
 	}
 	text = {

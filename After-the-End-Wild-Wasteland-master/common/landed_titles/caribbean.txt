@@ -31,6 +31,9 @@ e_caribbean = {
 		capital = 1100 # Havana
 		
 		americanist = 200
+		jeffersonian = 250
+		hamiltonian = 200
+		libertarian = 200
 		evangelical = 200
 
 		d_havana = {
@@ -291,6 +294,7 @@ e_caribbean = {
 			culture = afrocubano
 
 			capital = 1115
+			jeffersonian = 500
 
 			c_guantanamo = {
 				color = { 163 158 152 }

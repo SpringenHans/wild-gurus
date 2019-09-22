@@ -3490,7 +3490,12 @@ crusade = {
 						}
 					}
 					AND = {
-						religion = americanist
+						OR = {
+							religion = americanist
+							religion = jeffersonian
+							religion = hamiltonian
+							religion = libertarian
+						}
 						custom_tooltip = {
 							text = CTT_LIBERATION_WARS_UNLOCKED
 							has_global_flag = liberation_wars_unlocked
@@ -3513,16 +3518,54 @@ crusade = {
 		ROOT = {
 			uses_new_crusade = no
 			can_call_crusade = yes
+			conditional_tooltip = {
+				trigger = { religion = americanist }
+				NOT = {
+					any_independent_ruler = {
+						any_war = {
+							attacker = { religion = americanist }
+							using_cb = crusade
+						}
+					}
+				}
+			}
 		}
 		
 		FROM = {
 			OR = {
 				NOT = { religion_group = ROOT }
-				is_heresy_of = ROOT
-				is_parent_religion = ROOT
 				AND = {
-					religion_group = pagan_group
+					ROOT = {
+						NOR = {
+							religion = americanist
+							religion = jeffersonian
+							religion = hamiltonian
+							religion = libertarian
+						}
+					}
+					is_heresy_of = ROOT
+				}
+				AND = {
+					ROOT = {
+						NOR = {
+							religion = americanist
+							religion = jeffersonian
+							religion = hamiltonian
+							religion = libertarian
+						}
+					}
+					is_parent_religion = ROOT
+				}
+				AND = {
+					OR = {
+						religion_group = pagan_group
+						religion_group = mesoamerican_gods
+					}
 					NOT = { religion = ROOT }
+				}
+				AND = {
+					ROOT = { religion_openly_americanist_or_heresy_trigger = yes }
+					religion_openly_americanist_or_heresy_trigger = no
 				}
 			}
 		}
@@ -3536,32 +3579,94 @@ crusade = {
 	}
 
 	can_use_title = {
-		FROM = {
-			any_realm_title = {
-				de_jure_liege_or_above = PREVPREV
+		OR = {
+			FROM = {
+				any_realm_title = {
+					de_jure_liege_or_above = PREVPREV
+				}
+				
+				independent = yes # Don't declare Crusades on revolters - chances are high the war will invalidate
+				
+				OR = {
+					has_landed_title = PREV
+					num_of_realm_counties = {
+						value = 6
+						title = PREV
+					}
+				}
 			}
-			
-			independent = yes # Don't declare Crusades on revolters - chances are high the war will invalidate
-			
-			num_of_realm_counties = {
-				value = 6
-				title = PREV
+			AND = {
+				OR = {
+					has_holder = no
+					holder_scope = { religion = ROOT }
+				}
+				NOT = {
+					any_independent_ruler = {
+						any_realm_title = {
+							de_jure_liege_or_above = PREVPREV
+						}
+						NOR = { 
+							religion = FROM 
+							religion = ROOT
+						}
+					}
+				}
 			}
+		}
+		OR = {
+			ROOT = {
+				NOR = {
+					religion = americanist
+					religion = hamiltonian
+					religion = libertarian
+				}
+			}
+			capital_scope = { region = custom_usa }
 		}
 	}
 	
 	is_valid = {
 		ROOT = {
-			can_call_crusade = yes
+			OR = {
+				can_call_crusade = yes
+				religion = americanist
+			}
 		}
 		FROM = {
 			OR = {
 				NOT = { religion_group = ROOT }
-				is_heresy_of = ROOT
-				is_parent_religion = ROOT
 				AND = {
-					religion_group = pagan_group
+					ROOT = {
+						NOR = {
+							religion = americanist
+							religion = jeffersonian
+							religion = hamiltonian
+							religion = libertarian
+						}
+					}
+					is_heresy_of = ROOT
+				}
+				AND = {
+					ROOT = {
+						NOR = {
+							religion = americanist
+							religion = jeffersonian
+							religion = hamiltonian
+							religion = libertarian
+						}
+					}
+					is_parent_religion = ROOT
+				}
+				AND = {
+					OR = {
+						religion_group = pagan_group
+						religion_group = mesoamerican_gods
+					}
 					NOT = { religion = ROOT }
+				}
+				AND = {
+					ROOT = { religion_openly_americanist_or_heresy_trigger = yes }
+					religion_openly_americanist_or_heresy_trigger = no
 				}
 			}
 		}
@@ -3586,6 +3691,22 @@ crusade = {
 		}
 	}
 
+	on_add_title = {
+		any_independent_ruler = {
+			limit = {
+				mercenary = no
+				NOT = { character = FROM }
+				religion = FROM
+				NOT = { war_with = FROM }
+				NOT = { war_with = ROOT }
+				any_realm_title = {
+					de_jure_liege_or_above = PREVPREV
+				}
+			}
+			join_defender_wars = FROM
+		}
+	}
+
 	on_success_title = {
 	
 		# Should we give the seized land to its current king?
@@ -3597,11 +3718,41 @@ crusade = {
 				}
 			}
 			holder_scope = {
-				gain_settlements_under_title = {
-					title = PREV
-					enemy = FROM
-					is_crusade = yes # Even if the title holder is not participating in the war, gain holdings occupied by all Crusade participants
-					type = holy_war
+				save_event_target_as = new_owner
+			}
+
+			if = {
+				limit = { ROOT = { NOT = { war_with = FROM } } } #just for a tooltip
+				any_independent_ruler = {
+					limit = {
+						mercenary = no
+						religion = FROM
+						any_realm_title = {
+							de_jure_liege_or_above = PREVPREV
+						}
+					}
+					show_scope_change = no
+					event_target:new_owner = {
+						gain_settlements_under_title = {
+							title = PREVPREV
+							enemy = PREV
+							is_crusade = yes
+							type = holy_war
+						}
+					}
+				}
+			}
+			else = {
+				any_defender = {
+					show_scope_change = no
+					event_target:new_owner = {
+						gain_settlements_under_title = {
+							title = PREVPREV
+							enemy = PREV
+							is_crusade = yes
+							type = holy_war
+						}
+					}
 				}
 			}
 		}
@@ -3627,12 +3778,45 @@ crusade = {
 					limit = { is_ruler = no }
 					set_character_flag = set_feudal_gov
 				}
-				gain_settlements_under_title = {
-					title = PREV
-					enemy = FROM
-					is_crusade = yes # Even if the title holder is not participating in the war, gain holdings occupied by all Crusade participants
-					type = holy_war
+				save_event_target_as = new_owner
+			}
+
+			if = {
+				limit = { ROOT = { NOT = { war_with = FROM } } } #just for a tooltip
+				any_independent_ruler = {
+					limit = {
+						mercenary = no
+						religion = FROM
+						any_realm_title = {
+							de_jure_liege_or_above = PREVPREV
+						}
+					}
+					show_scope_change = no
+					event_target:new_owner = {
+						gain_settlements_under_title = {
+							title = PREVPREV
+							enemy = PREV
+							is_crusade = yes
+							type = holy_war
+						}
+					}
 				}
+			}
+			else = {
+				any_defender = {
+					show_scope_change = no
+					event_target:new_owner = {
+						gain_settlements_under_title = {
+							title = PREVPREV
+							enemy = PREV
+							is_crusade = yes
+							type = holy_war
+						}
+					}
+				}
+			}
+
+			best_crusade_claimant = {
 				if = {
 					limit = {
 						top_liege = {
@@ -3687,11 +3871,42 @@ crusade = {
 				}
 			}
 			most_participating_crusader = {
-				gain_settlements_under_title = {
-					title = PREV
-					enemy = FROM
-					type = holy_war
+				save_event_target_as = new_owner
+			}
+			if = {
+				limit = { ROOT = { NOT = { war_with = FROM } } } #just for a tooltip
+				any_independent_ruler = {
+					limit = {
+						mercenary = no
+						religion = FROM
+						any_realm_title = {
+							de_jure_liege_or_above = PREVPREV
+						}
+					}
+					show_scope_change = no
+					event_target:new_owner = {
+						gain_settlements_under_title = {
+							title = PREVPREV
+							enemy = PREV
+							is_crusade = yes
+							type = holy_war
+						}
+					}
 				}
+			}
+			else = {
+				any_defender = {
+					show_scope_change = no
+					event_target:new_owner = {
+						gain_settlements_under_title = {
+							title = PREVPREV
+							enemy = PREV
+							type = holy_war
+						}
+					}
+				}
+			}
+			most_participating_crusader = {
 				if  = {
 					limit = {
 						primary_title = { is_primary_type_title = no } # Mercs, the Pope, Holy Orders, etc
@@ -4109,7 +4324,10 @@ new_crusade = {
 				is_heresy_of = ROOT
 				is_parent_religion = ROOT
 				AND = {
-					religion_group = pagan_group
+					OR = {
+						religion_group = pagan_group
+						religion_group = mesoamerican_gods
+					}
 					NOT = { religion = ROOT }
 				}
 			}
@@ -4124,21 +4342,42 @@ new_crusade = {
 	}
 
 	can_use_title = {
-		FROM = {
-			any_realm_title = {
-				de_jure_liege_or_above = PREVPREV
-			}
-			
-			independent = yes # Don't declare Crusades on revolters - chances are high the war will invalidate
-			
-			OR = {
-				num_of_realm_counties = {
-					value = 6
-					title = PREV
+		OR = {
+			FROM = {
+				any_realm_title = {
+					de_jure_liege_or_above = PREVPREV
 				}
-				PREV = {
-					title = k_maritimes	
-				} 
+				
+				independent = yes # Don't declare Crusades on revolters - chances are high the war will invalidate
+				
+				OR = {
+					has_landed_title = PREV
+					num_of_realm_counties = {
+						value = 6
+						title = PREV
+					}
+					PREV = {
+						title = k_maritimes	
+					} 
+				}
+			}
+			AND = {
+				OR = {
+					has_holder = no
+					holder_scope = { religion = ROOT }
+				}
+				NOT = {
+					any_independent_ruler = {
+						mercenary = no
+						any_realm_title = {
+							de_jure_liege_or_above = PREVPREV
+						}
+						NOR = { 
+							religion = FROM 
+							religion = ROOT
+						}
+					}
+				}
 			}
 		}
 	}
@@ -4154,7 +4393,10 @@ new_crusade = {
 				is_heresy_of = ROOT
 				is_parent_religion = ROOT
 				AND = {
-					religion_group = pagan_group
+					OR = {
+						religion_group = pagan_group
+						religion_group = mesoamerican_gods
+					}
 					NOT = { religion = ROOT }
 				}
 			}
@@ -4177,6 +4419,14 @@ new_crusade = {
 				sound_effect = china_angered_emperor
 				detract_grace_super_huge_effect = yes 
 			}
+		}
+	}
+
+	on_add_title = {
+		ROOT = { save_event_target_as = crusade_attacker }
+		save_event_target_as = crusade_title
+		FROM = {
+			character_event = { id = ATE_WWW_RELIGION.23 days = 1 }
 		}
 	}
 
@@ -4688,7 +4938,6 @@ new_crusade = {
 				}
 				set_crusade_pot_multiplier = 0
 			}
-
 			# Distribute the Pot and Titles
 			ROOT = {
 				set_global_flag = distributing_crusade
@@ -4725,10 +4974,27 @@ new_crusade = {
 						}
 					}
 					most_participating_crusader = {
-						gain_settlements_under_title = {
-							title = PREVPREV
-							enemy = FROM
-							type = holy_war
+						save_event_target_as = new_owner
+					}
+					any_independent_ruler = {
+						limit = {
+							OR = {
+								character = FROM
+								AND = {
+									religion = FROM
+									any_war = {
+										using_cb = new_crusade
+										any_attacker = { character = ROOT }
+									}
+								}
+							}
+						}
+						event_target:new_owner = {
+							gain_settlements_under_title = {
+								title = event_target:new_crusade_title
+								enemy = PREV
+								type = holy_war
+							}
 						}
 					}
 					any_playable_ruler = {
@@ -4852,13 +5118,9 @@ new_crusade = {
 								character_event = { id = HFP.41090 days = 1 }
 								if = {
 									limit = {
-										NOR = {
-											trait = crusader
-											trait = crusader_king
-											trait = crusader_queen
-										}
+										has_crusade_trait_trigger = no
 									}
-									add_trait = crusader
+									add_am_crusade_trait_effect = yes
 								}
 							}
 							character_event = { id = HFP.41007 }
@@ -4920,6 +5182,22 @@ new_crusade = {
 				}
 				# Otherwise
 				else = {
+					any_independent_ruler = {
+						limit = {
+							NOT = { character = FROM }
+							religion = FROM
+							any_war = {
+								using_cb = new_crusade
+								any_attacker = { character = ROOT }
+							}
+						}
+						FROM = {
+							vassalize_or_take_under_title = {
+								title = event_target:new_crusade_title
+								enemy = PREV
+							}
+						}
+					}
 					FROM = {
 						any_realm_character = {
 							limit = {
@@ -5583,7 +5861,19 @@ religious = {
 				NOT = { religion_group = FROM }
 				is_heresy_of = FROM
 				is_parent_religion = FROM
-				
+				AND = {
+					religion_group = mesoamerican_gods
+					NOT = { religion = FROM }
+					FROM = {
+						NOT = { 
+							any_current_enemy = {
+								NOT = {
+									religion_group = mesoamerican_gods
+								}
+							}
+						}
+					}
+				}
 				AND = {
 					religion_group = oldworld
 					NOT = { religion = FROM }
@@ -5666,6 +5956,7 @@ religious = {
 									AND = {
 										OR = {
 											ROOT = { religion_group = oldworld }
+											ROOT = { religion_group = mesoamerican_gods }
 											ROOT = { religion_group = afro_syncretic }
 											ROOT = { religion_group = cult_of_saints }
 											ROOT = { religion_group = pacific }
@@ -5765,6 +6056,10 @@ religious = {
 				}
 				AND = {
 					religion_group = oldworld
+					NOT = { religion = FROM }
+				}
+				AND = {
+					religion_group = mesoamerican_gods
 					NOT = { religion = FROM }
 				}
 			}
@@ -11322,7 +11617,6 @@ pagan_county_conquest = {
 					ROOT = { religion = norse_pagan }
 					ROOT = { religion = norse_pagan_reformed }
 					ROOT = { religion = brethren }
-					ROOT = { religion = espiritista }
 					AND = {
 						ROOT = {
 							OR = {
@@ -11332,7 +11626,7 @@ pagan_county_conquest = {
 						}
 						FROM = { NOT = { religion_group = pagan_group } }
 					}
-					has_religion_feature = religion_seafaring
+					ROOT = { has_religion_feature = religion_seafaring }
 				}
 				location = {
 					port = yes

@@ -162,6 +162,17 @@ add_am_crusade_trait_effect = {
 		add_trait = dragon_soldier
 		break = yes
 	}
+	if = {
+		limit = {
+			OR = {
+				religion = americanist
+				religion = jeffersonian
+				religion = hamiltonian
+				religion = libertarian
+			}
+		}
+		add_trait = service_cross
+	}
 }
 
 ##SECRET RELIGIONS##
@@ -4517,12 +4528,12 @@ join_prev_monastic_order_society = {
 		join_society = monastic_order_cetic
 	}
 	if = {
-		limit = { PREV = { society_member_of = monastic_order_neutic } }
-		join_society = monastic_order_neutic
-	}
-	if = {
 		limit = { PREV = { society_member_of = monastic_order_libertarian } }
 		join_society = monastic_order_libertarian
+	}
+	if = {
+		limit = { PREV = { society_member_of = monastic_order_neutic } }
+		join_society = monastic_order_neutic
 	}
 }
 
@@ -5320,7 +5331,7 @@ spawn_fantastic_diplomat_effect = {
 			}
 			random = { 
 				chance = 20 
-				add_trait = crusader
+				add_am_crusade_trait_effect = yes
 			}
 		}
 		
@@ -9301,7 +9312,6 @@ apply_any_applicable_harsh_penalties_effect = {
 	                    religion_group = pagan_group
 	                    is_nomadic = yes
 	                    religion = cetic
-	                    religion = neutic
 	                    religion = neognostic
 	                }
 	                event_target:combatant_1 = { #Same as "FROM" in this case
@@ -9310,7 +9320,6 @@ apply_any_applicable_harsh_penalties_effect = {
 	                        religion_group = pagan_group
 	                        is_nomadic = yes
 	                        religion = cetic
-	                        religion = neutic
 	                        religion = neognostic
 	                    }
 	                }
@@ -9350,7 +9359,6 @@ apply_any_applicable_harsh_penalties_effect = {
 	                        religion_group = pagan_group
 	                        is_nomadic = yes
 	                        religion = cetic
-	                        religion = neutic
 	                        religion = neognostic
 	                    }
 	                }
@@ -10760,6 +10768,7 @@ set_bloodline_founder_religion_flag_effect = {
 		limit = { religion = cetic }
 		new_bloodline = { set_bloodline_flag = requires_cetic_religion }
 	}
+	##NEUTIC##
 	else_if = {
 		limit = { religion = neutic }
 		new_bloodline = { set_bloodline_flag = requires_neutic_religion }

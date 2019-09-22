@@ -3001,6 +3001,9 @@ on_character_convert_religion = {
 		RoI.110 #Choose Hindu Branch (moved here)
 		candomble.23 #Remove Candomble patron deities
 
+		#Neutic Events
+		neutic.100
+
 		misc.70
 	}
 }

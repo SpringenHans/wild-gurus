@@ -287,10 +287,6 @@ character_event = {
 					e_california = { has_holder = no }
 					factor = 0
 				}
-				modifier = {
-					has_alternate_start_parameter = { key = religion_names value = random }
-					factor = 0
-				}
 				set_character_flag = monastic_orders_mission_cetic_pilgrimage
 			}
 			10 = {
@@ -429,9 +425,9 @@ character_event = {
 				monastic_orders_mission_mormon_pilgrimage = 	{ clr_character_flag = monastic_orders_mission_mormon_pilgrimage society_quest_event = { id = MNM.40190 } }
 				monastic_orders_mission_cetic_pilgrimage = 		{ clr_character_flag = monastic_orders_mission_cetic_pilgrimage society_quest_event = { id = MNM.40191 } }
 				monastic_orders_mission_temple = 				{ clr_character_flag = monastic_orders_mission_temple society_quest_event = { id = MNM.4023 } }
+				monastic_orders_mission_neutic_writings = 		{ clr_character_flag = monastic_orders_mission_neutic_writings society_quest_event = { id = MNM.40192 } }
 				monastic_orders_mission_donate_castle = 				{ clr_character_flag = monastic_orders_mission_donate_castle society_quest_event = { id = MNM_ATEWWW.14 } }
 				monastic_orders_mission_lady_liberty = 				{ clr_character_flag = monastic_orders_mission_lady_liberty society_quest_event = { id = MNM_ATEWWW.18 } }
-				monastic_orders_mission_neutic_writings = 		{ clr_character_flag = monastic_orders_mission_neutic_writings society_quest_event = { id = MNM.40192 } }
 			}
 		}
 	}
@@ -451,6 +447,7 @@ society_quest_event = {
 			OR = {
 				is_dharmic_monastic_member_trigger = yes
 				society_member_of = monastic_order_cetic
+				society_member_of = monastic_order_neutic
 			}
 		}
 		text = EVTDESC_4402_MEDITATION
@@ -1578,6 +1575,7 @@ character_event = {
 				OR = {
 					is_dharmic_monastic_member_trigger = yes 
 					society_member_of = monastic_order_cetic
+					society_member_of = monastic_order_neutic
 				}
 			}
 			add_character_modifier = {
@@ -1989,15 +1987,11 @@ character_event = {
 
 	option = {
 		name = {
-			trigger = { NOR = {
-				religion = cetic 
-				religion = neutic
-				} 
-			}
+			trigger = { NOT = { religion = cetic } }
 			text = EVTOPTA_MNM_4416_A
 		}
 		name = {
-			trigger = { OR =
+			trigger = { OR = { 
 				religion = cetic 
 				religion = neutic
 				}
@@ -2034,15 +2028,11 @@ character_event = {
 
 	option = {
 		name = {
-			trigger = { NOR = {
-				religion = cetic 
-				religion = neutic
-				} 
-			}
+			trigger = { NOT = { religion = cetic } }
 			text = EVTOPTA_MNM_4415_A
 		}
 		name = {
-			trigger = { OR =
+			trigger = { OR = {
 				religion = cetic 
 				religion = neutic
 				}
@@ -2536,15 +2526,19 @@ character_event = {
 	option = {
 		name = {
 			trigger = {
-				NOT = {
+				NOR = {
 					society_member_of = monastic_order_cetic
+					society_member_of = monastic_order_neutic
 				}
 			}
 			text = EVTOPTA_MNM_4426_GOD
 		}
 		name = {
 			trigger = {
-				society_member_of = monastic_order_cetic
+				OR = {
+					society_member_of = monastic_order_cetic
+					society_member_of = monastic_order_neutic
+				}
 			}
 			text = EVTOPTA_MNM_4426_NOGOD
 		}
@@ -5513,15 +5507,19 @@ character_event = {
 	option = {
 		name = {
 			trigger = {
-				NOT = {
+				NOR = {
 					society_member_of = monastic_order_cetic
+					society_member_of = monastic_order_neutic
 				}
 			}
 			text = EVTOPTA_MNM_4400_GOD
 		}
 		name = {
 			trigger = {
-				society_member_of = monastic_order_cetic
+				OR = { 
+					society_member_of = monastic_order_cetic
+					society_member_of = monastic_order_neutic
+				}
 			}
 			text = EVTOPTA_MNM_4400_NOGOD
 		}
@@ -10350,8 +10348,8 @@ character_event = {
 	trigger = {
 		is_monastic_member_trigger = yes
 		NOR = { #Buddhists and Jains have a different power
-				society_member_of = monastic_order_cetic
-				society_member_of = monastic_order_neutic
+			society_member_of = monastic_order_cetic
+			society_member_of = monastic_order_neutic
 		}
 	}
 
@@ -11344,6 +11342,7 @@ letter_event = {
 		clr_character_flag = monastic_orders_statue_of_liberty_ongoing
 	}
 }
+
 #Fellowship of Gurus Quests
 
 society_quest_event = { # Neutic Writings mission

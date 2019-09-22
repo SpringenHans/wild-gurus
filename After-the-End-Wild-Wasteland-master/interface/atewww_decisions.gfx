@@ -48,6 +48,14 @@ spriteTypes = {
 		texturefile = "gfx/interface/become_general_of_army.dds"
 	}
 	spriteType = {
+		name = "GFX_select_patron_general"
+		texturefile = "gfx/interface/form_the_usa.dds"
+	}
+	spriteType = {
+		name = "GFX_start_wars_of_liberation"
+		texturefile = "gfx/interface/form_the_usa.dds"
+	}
+	spriteType = {
 		name = "GFX_become_pirate_king"
 		texturefile = "gfx/interface/become_pirate_king.dds"
 	}
@@ -92,18 +100,63 @@ spriteTypes = {
 		texturefile = "gfx/interface/decision_icon_vassalize_holy_order.dds"
 	}
 	spriteType = {
-		name = "GFX_create_neutic_gurus"
-		texturefile = "gfx/interface/create_neutic_gurus.dds"
-		noOfFrames = 1
-		norefcount = yes
-		effectFile = "gfx/FX/buttonstate.lua"
+		name = "GFX_identify_medicine"
+		texturefile = "gfx\\interface\\decision_icon_seek_treatment.dds"
 	}
 	spriteType = {
-		name = "GFX_neutic_writings"
-		texturefile = "gfx/interface/writing.dds"
+		name = "GFX_take_medicine"
+		texturefile = "gfx\\interface\\decision_icon_seek_treatment.dds"
 	}
 	spriteType = {
-		name = "GFX_neutic_writings_end"
-		texturefile = "gfx/interface/writing2.dds"
+		name = "GFX_take_vitamins"
+		texturefile = "gfx\\interface\\decision_icon_seek_treatment.dds"
+	}
+	spriteType = {
+		name = "GFX_take_antidepressants"
+		texturefile = "gfx\\interface\\decision_icon_seek_treatment.dds"
+	}
+	spriteType = {
+		name = "GFX_take_viagra"
+		texturefile = "gfx\\interface\\decision_icon_seek_treatment.dds"
+	}
+	spriteType = {
+		name = "GFX_expel_salvation_army"
+		texturefile = "gfx\\interface\\decision_icon_expel_holy_order.dds"
+	}
+	spriteType = {
+		name = "GFX_donate_money_to_salvation_army"
+		texturefile = "gfx\\interface\\decision_icon_donate_to_holy_order.dds"
+	}
+	spriteType = {
+		name = "GFX_expel_saint_expedit"
+		texturefile = "gfx\\interface\\decision_icon_expel_holy_order.dds"
+	}
+	spriteType = {
+		name = "GFX_donate_money_to_saint_expedit"
+		texturefile = "gfx\\interface\\decision_icon_donate_to_holy_order.dds"
+	}
+	spriteType = {
+		name = "GFX_expel_lightbringers"
+		texturefile = "gfx\\interface\\decision_icon_expel_holy_order.dds"
+	}
+	spriteType = {
+		name = "GFX_donate_money_to_lightbringers"
+		texturefile = "gfx\\interface\\decision_icon_donate_to_holy_order.dds"
+	}
+	spriteType = {
+		name = "GFX_vassalize_lightbringers"
+		texturefile = "gfx/interface/decision_icon_vassalize_holy_order.dds"
+	}
+	spriteType = {
+		name = "GFX_expel_dead_sun"
+		texturefile = "gfx\\interface\\decision_icon_expel_holy_order.dds"
+	}
+	spriteType = {
+		name = "GFX_donate_money_to_dead_sun"
+		texturefile = "gfx\\interface\\decision_icon_donate_to_holy_order.dds"
+	}
+	spriteType = {
+		name = "GFX_vassalize_dead_sun"
+		texturefile = "gfx/interface/decision_icon_vassalize_holy_order.dds"
 	}
 }

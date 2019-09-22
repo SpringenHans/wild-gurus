@@ -1,5 +1,11 @@
 spriteTypes = {
 	spriteType = {
+		name = "GFX_secretly_monetarist"
+		texturefile = "gfx\\traits\\secret_religion_consumerist.tga"
+		noOfFrames = 1
+		norefcount = yes
+	}
+	spriteType = {
 		name = "GFX_trait_inaug_by_sjudge"
 		texturefile = "gfx/traits/inaug_by_sjudge.dds"
 		noOfFrames = 1
@@ -14,29 +20,50 @@ spriteTypes = {
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_way_fist_neutic"
-		texturefile = "gfx/traits/way_fist.tga"
+		name = "GFX_trait_service_cross"
+		texturefile = "gfx/traits/service_cross.dds"
 		noOfFrames = 1
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_way_cowl_neutic"
-		texturefile = "gfx/traits/way_cowl.tga"
+		name = "GFX_trait_militarist_macarthur"
+		texturefile = "gfx/traits/militarist_macarthur.dds"
 		noOfFrames = 1
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_way_book_neutic"
-		texturefile = "gfx/traits/way_book.tga"
+		name = "GFX_trait_militarist_sherman"
+		texturefile = "gfx/traits/militarist_sherman.dds"
 		noOfFrames = 1
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 	spriteType = {
-		name = "GFX_trait_way_dove_neutic"
-		texturefile = "gfx/traits/way_dove.tga"
+		name = "GFX_trait_militarist_patton"
+		texturefile = "gfx/traits/militarist_patton.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_militarist_custer"
+		texturefile = "gfx/traits/militarist_custer.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_militarist_lee"
+		texturefile = "gfx/traits/militarist_lee.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_militarist_butler"
+		texturefile = "gfx/traits/militarist_butler.dds"
 		noOfFrames = 1
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"
